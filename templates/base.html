@@ -7,24 +7,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
-    <title>Task Manager</title>
+    <title>Symbols</title>
 </head>
 <body>
     <header>
     <!--https://materializecss.com/navbar.html -NavBar- -->
         <nav>
             <div class="nav-wrapper">
-                <a href="{{url_for('get_tasks')}}" class="brand-logo">Task Manager</a>
+                <a href="{{url_for('get_meaning')}}" class="brand-logo">Symbols</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{url_for('get_tasks')}}">Home</a></li>
-                    <li><a href="{{url_for('add_task')}}">New Task</a></li>
-                    <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
+                    <li><a href="{{url_for('get_meaning')}}">Home</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{url_for('get_tasks')}}">Home</a></li>
-                    <li><a href="{{url_for('add_task')}}">New Task</a></li>
-                    <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
+                    <li><a href="{{url_for('get_meaning')}}">Home</a></li>
                 </ul>
             </div>
         </nav>
