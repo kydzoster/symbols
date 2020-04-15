@@ -10,8 +10,13 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome.min.js"></script>
-    <!--personalized css-->
-    <link rel="stylesheet" href="static/css/styles.css" />
+
+<!--Materialize-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    
+<!--personalized css-->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
 </head>
 <body>
 
@@ -54,7 +59,7 @@
         {% endblock %}
 
 <!-- Footer-->
-    <footer class="container-fluid bg-dark py-3 fixed-bottom">
+    <footer class="container-fluid bg-dark mt-1 fixed-bottom">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 text-muted text-center">
@@ -76,6 +81,7 @@
         crossorigin="anonymous"></script>
     <script src="static/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 <!-- Email -->
     <script src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
