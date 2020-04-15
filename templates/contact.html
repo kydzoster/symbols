@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'base.html'%} 
+{% block content %}
+<div class="container my-5 py-5">
+    <div class="row no-gutters">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-muted text-uppercase text-center">Contact Us</h5>
+                    <br />
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xs-12 col-sm-12 col-md-7">
+                                        <div class="col-sm-12">
+                                            <div class="well well-sm">
+                                                <form onsubmit="return sendMail(this);">
+                                                    <div class="row mt-4 ml-2">
+                                                        <div class="col-sm-8">
+                                                            <div class="form-group font-weight-bolder">
+                                                                <label for="name">Name</label>
+                                                                <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" required />
+                                                            </div>
+                                                            <div class="form-group font-weight-bolder">
+                                                                <label for="email">Email Address</label>
+                                                                <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group font-weight-bolder">
+                                                                <label for="message">Message</label>
+                                                                <textarea name="message" id="message" class="form-control" rows="9" cols="25" placeholder="Insert Text Here!" required></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6"></div>
+                                                        <div class="col-sm-6">
+                                                            <button type="submit" class="btn enter pull-right mb-3"> Send Message</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

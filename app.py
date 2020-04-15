@@ -21,6 +21,21 @@ def get_symbols():
     return render_template("symbols.html")
 
 
+@app.route('/get_signup')
+def get_signup():
+    return render_template("signup.html")
+
+
+@app.route('/get_login')
+def get_login():
+    return render_template("login.html")
+
+
+@app.route('/get_contact')
+def get_contact():
+    return render_template("contact.html")
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
