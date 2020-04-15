@@ -13,13 +13,21 @@
 						<div class="card-body">
 							<div class="col-md-12">
 								<div class="row d-flex justify-content-center">
-									<form>
+									<form action="{{url_for('update_desc', desc_id=desc._id)}}" method="POST">
                                         <div class="row my-4">
                                             <div class="col-md-12">
                                                 <div class="form-group font-weight-bolder">
                                                     <label for="country">Country</label>
-                                                    <input type="text" name="country" class="form-control"
-                                                    id="country" placeholder="Enter Country" required />
+                                                    <select id="country" name="country_name">
+                                                        <option value="" disabled selected>Choose Country</option>
+                                                        {% for cat in categories %}
+                                                            {% if cat.country_name == desc.country_name %}
+                                                            <option value="{{cat.country_name}}" selected>{{cat.country_name}}</option>
+                                                            {% else %}
+                                                            <option value="{{cat.country_name}}">{{cat.country_name}}</option>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </select>
                                                 </div>
                                                 <div class="form-group font-weight-bolder">
                                                     <label for="symbol">Symbol</label>
@@ -28,17 +36,17 @@
                                                 </div>
                                                 <div class="form-group font-weight-bolder">
                                                     <label for="name">Name</label>
-                                                    <input type="text" name="name" class="form-control"
-                                                    id="name" placeholder="Enter Name of a Symbol"
+                                                    <input type="text" name="desc_name" class="form-control validate"
+                                                    id="desc_name" placeholder="Enter Name of a Symbol" value="{{desc.desc_name}}"
                                                     required />
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group font-weight-bolder">
-                                                    <label for="message">Meaning</label>
-                                                    <textarea name="message" id="message" class="form-control"
+                                                    <label for="desc_desc">Meaning</label>
+                                                    <textarea name="desc_desc" id="desc_desc" class="form-control"
                                                     rows="9" cols="25" placeholder="Type Here!"
-                                                    required></textarea>
+                                                    required>{{desc.desc_desc}}</textarea>
                                                 </div>
                                             </div>
                                             <div class="row"></div>
