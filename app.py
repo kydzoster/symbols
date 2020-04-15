@@ -17,7 +17,7 @@ def get_index():
 
 ##############
 @app.route('/get_descs')
-def get_symbols():
+def get_descs():
     return render_template("descs.html", descs=mongo.db.descs.find())
 
 
@@ -78,14 +78,15 @@ def get_account():
     return render_template("account.html")
 
 
-@app.route('/get_countries')
-def get_countries():
-    return render_template("countries.html", countries=mongo.db.categories.find())
+@app.route('/get_categories')
+def get_categories():
+    return render_template('countries.html', country=mongo.db.categories.find())
 
 
 @app.route('/edit_country/<country_id>')
 def edit_country(country_id):
-    return render_template('editcountry.html', country=mongo.db.categories.find_one({'_id': ObjectId(country_id)}))
+    return render_template('editcountry.html',
+    country=mongo.db.categories.find_one({'_id': ObjectId(country_id)}))
 
 
 @app.route('/update_country/<country_id>', methods=['POST'])
@@ -93,20 +94,20 @@ def update_country(country_id):
     mongo.db.categories.update(
         {'_id': ObjectId(country_id)},
         {'country_name': request.form.get('country_name')})
-    return redirect(url_for('get_countries'))
+    return redirect(url_for('get_categories'))
 
 
 @app.route('/delete_country/<country_id>')
 def delete_country(country_id):
     mongo.db.categories.remove({'_id': ObjectId(country_id)})
-    return redirect(url_for('get_countries'))
+    return redirect(url_for('get_categories'))
 
 
 @app.route('/insert_country', methods=['POST'])
 def insert_country():
     country_doc = {'country_name': request.form.get('country_name')}
     mongo.db.categories.insert_one(country_doc)
-    return redirect(url_for('get_countries'))
+    return redirect(url_for('get_categories'))
 
 
 @app.route('/add_country')

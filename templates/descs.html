@@ -29,21 +29,23 @@
             <div class="card">
                 <div class="card-body">
                 {% for desc in descs %}
-                    <h5 class="card-title text-muted text-uppercase text-center">{{categories.country_name}}</h5>
+                    <h5 class="card-title text-muted text-uppercase text-center">{{desc.country_name}}</h5>
                     <br />
                     <div class="card">
                         <div class="card-body">
                             <div class="col-md-12">
                                 <div class="row">
+                                    <label for="desc">Name</label>
                                     <div class="col-md-6">{{desc.desc_name}}</div>
-                                    <div class="col-md-6">image</div>
+                                    <label for="image">Picture</label>
+                                    <div class="col-md-6">image will be here</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">meaning</div>
                                     <div class="col-md-6">{{desc.desc_desc}}</div>
                                 </div>
                                 <div class="row">
-                                    <a class="btn-info" href="{{url_for('edit_task', task_id=task._id)}}" role="button">Edit</a>
+                                    <a class="btn-info" href="{{url_for('edit_desc', desc_id=desc._id)}}" role="button">Edit</a>
                                 </div>
                             </div>
                         </div>
