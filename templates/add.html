@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+{% block content %}
+<div class="container my-5 py-5">
+	<div class="row no-gutters">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title text-muted text-uppercase text-center">Add Country / Symbol
+					</h5>
+					<br />
+					<div class="card">
+						<div class="card-body">
+							<div class="col-md-12">
+								<div class="row d-flex justify-content-center">
+									<form>
+										<div class="row my-4">
+											<div class="col-md-12">
+												<div class="form-group font-weight-bolder">
+													<label for="country">Country</label>
+													<input type="text" name="country" class="form-control"
+                                                    id="country" placeholder="Enter Country" required />
+                                                </div>
+                                                <div class="form-group font-weight-bolder">
+                                                    <label for="symbol">Symbol</label>
+                                                    <input type="text" name="symbol" class="form-control"
+                                                    id="symbol" placeholder="https://" required />
+                                                </div>
+                                                <div class="form-group font-weight-bolder">
+                                                    <label for="name">Name</label>
+                                                    <input type="text" name="name" class="form-control"
+                                                    id="name" placeholder="Enter Name of a Symbol" required />
+                                                </div>
+											</div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group font-weight-bolder">
+                                                    <label for="message">Meaning</label>
+                                                    <textarea name="message" id="message" class="form-control"
+                                                    rows="9" cols="25" placeholder="Type Here!" required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row"></div>
+                                            <div>
+                                                <a href="#" class="mt-5 mr-5 pt-5 pr-5 pl-3">Add</a>
+                                            </div>
+                                            <div>
+                                                <a href="#" class="my-5 pl-5">Cancel</a>
+                                            </div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
