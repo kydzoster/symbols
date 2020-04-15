@@ -41,14 +41,20 @@ def get_account():
     return render_template("account.html")
 
 
-@app.route('/get_add')
-def get_add():
-    return render_template("add.html")
+@app.route('/get_adddesc')
+def get_adddesc():
+    return render_template("adddesc.html")
 
 
-@app.route('/get_edit')
+@app.route('/get_editdesc')
 def get_edit():
-    return render_template("edit.html")
+    return render_template("editesc.html")
+
+
+@app.route('/get_desc')
+def get_desc():
+    return render_template("desc.html",
+                           tasks=mongo.db.tasks.find())
 
 
 @app.route('/get_countries')
