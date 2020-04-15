@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends 'base.html'%} 
+{% block content %}
+<div class="container-fluid mt-5 pt-5">
+    <div class="row no-gutters">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-light text-sm-left text-md-right">
+            <h1>Alphabetical list of Countries Here</h1>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row no-gutters">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-light">
+            <form class="form-inline float-md-right float-sm-left">
+                <div class="md-form">
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<div class="container  my-5 py-5">
+    <div class="row no-gutters">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-muted text-uppercase text-center"> Latvia</h5>
+                    <br />
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">symbols</div>
+                                    <div class="col-md-6">image</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">meaning</div>
+                                    <div class="col-md-6">description text</div>
+                                </div>
+                                <div class="row">
+                                    <a class="btn-info" href="login.html" role="button">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

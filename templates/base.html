@@ -11,14 +11,15 @@
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome.min.js"></script>
     <!--personalized css-->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="static/css/styles.css" />
 </head>
 <body>
+
 <!-- NavBar -->    
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{url_for('get_index')}}">
                     Symbols
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -28,28 +29,27 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home
+                            <a class="nav-link" href="{{url_for('get_index')}}">Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="symbols.html">Symbols</a>
+                            <a class="nav-link" href="{{url_for('get_symbols')}}">Symbols</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signup.html">Sign-up</a>
+                            <a class="nav-link" href="#">Sign-up</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Log-in</a>
+                            <a class="nav-link" href="#">Log-in</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="contact.html">Contact
-                                <span class="sr-only">(current)</span>
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
         {% block content %}
         {% endblock %}
 

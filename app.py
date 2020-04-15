@@ -11,9 +11,14 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/get_meaning')
-def get_meaning():
-    return render_template("meaning.html", meaning=mongo.db.meaning.find())
+@app.route('/get_index')
+def get_index():
+    return render_template("index.html")
+
+
+@app.route('/get_symbols')
+def get_symbols():
+    return render_template("symbols.html")
 
 
 if __name__ == '__main__':
