@@ -36,6 +36,21 @@ def get_contact():
     return render_template("contact.html")
 
 
+@app.route('/get_account')
+def get_account():
+    return render_template("account.html")
+
+
+@app.route('/get_add')
+def get_add():
+    return render_template("add.html")
+
+
+@app.route('/get_edit')
+def get_edit():
+    return render_template("edit.html")
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
