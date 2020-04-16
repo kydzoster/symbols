@@ -1,35 +1,38 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Task Manager
+#### CI walkthrough project
 
-Welcome Martins Silins,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+## Steps for deployment
 
-## Gitpod Reminders
+##### 1. Create a New project on Heroku
+##### 2. ***heroku login*** in Terminal
+##### 3. ***heroku apps*** in terminal to check if connection has been established
+##### 4. ***git init*** in Terminal
+##### 5. Copy ***heroku git:remote -a task-menegeris*** from heroku to set it up in Heroku
+##### 6. Create a requirements.txt ***pip3 freeze --local > requirements.txt***
+##### 7. ***git add .*** in Terminal
+##### 8. ***git commit -m""*** in Terminal
+##### 9. Deploy on heroku ***git push heroku master***
+##### 10. Create a ***echo web: python app.py > Procfile***
+##### 11. add, commit and push to heroku
+##### 12. run it ***heroku ps:scale web=1***
+##### 13. go to heroku Settings > Reveal config Vars add IP 0.0.0.0 and PORT 5000
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
 
-A blue button should appear to click: *Make Public*,
+## Installations
 
-Another blue button should appear to click: *Open Browser*.
+##### 1. Install ***pip3 install flask-pymongo*** for flask to be able to work with MongoDB
+##### 2. Install ***pip3 install dnspython*** for new style connection string for MongoDB
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Libraries, Templates
 
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+##### 1. https://materializecss.com/collapsible.html -Accordion, collapsible task bars-
+##### 2. https://material.io/resources/icons/?icon=expand_more&style=baseline -Icons from Material.io-
+##### 3. Added few more categories in MangoDB Atlas
+##### 4. https://materializecss.com/text-inputs.html -Icon Prefixes from Form Templates-
+##### 5. https://materializecss.com/switches.html -styled switches-
+##### 6. https://materializecss.com/pickers.html -Date picker-
+##### 7. https://materializecss.com/select.html -Select options-
+##### 8. https://materializecss.com/buttons.html -Submit button-
+##### 9. https://materializecss.com/navbar.html -NavBar-

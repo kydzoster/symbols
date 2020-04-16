@@ -53,3 +53,83 @@ footer a:hover {
 @media (min-width: 544px) {  
   h1 {font-size:1.5rem;} /*1rem = 16px*/
 }
+
+
+
+
+
+
+
+
+
+
+
+.btn_small{
+    height: 24px;
+    width: 80px;
+    line-height: 24px;
+    margin: 5px 5px;
+    padding: 0 0.5em;
+}
+
+.task_header{
+    margin-top: 8px;
+    margin-left: 50px
+}
+/*########## from googly search.html*/
+
+
+.wordlink {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+  color: #023f02;
+  width: 50%;
+}
+
+.wordlink:hover, 
+.letter-link:hover,
+#ethos a:hover {
+  color: rgb(126, 126, 126);
+}
+
+.wallpaper {
+  /* image from pixabay.com*/
+  background: url("../img/stumps.jpg") 50% 30% no-repeat;
+  background-size: cover;
+  min-height: 63vh;
+}
+
+.content {
+  padding: 2rem;
+  height: 100%
+}
+
+.noresult {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.text-frame, 
+.contribute {
+  border-radius: 1rem;
+}
+
+.text-frame,
+.word-frame {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.text-frame {
+  margin-top: 2rem;
+}
+
+.text-frame h5 {
+  margin-left: 1.5rem;
+}
+
+.word-frame {
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+}

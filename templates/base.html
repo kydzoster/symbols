@@ -17,6 +17,7 @@
     
 <!--personalized css-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/copy.css')}}">
 </head>
 <body>
 
@@ -47,7 +48,13 @@
                             <a class="nav-link" href="{{url_for('get_login')}}">Log-in</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('contribute')}}">Contribute</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{url_for('get_contact')}}">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('add_word')}}">add</a>
                         </li>
                     </ul>
                 </div>
@@ -86,6 +93,5 @@
 <!-- Email -->
     <script src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
     <script> (function () { emailjs.init("user_nQSUi7DXcTcj4S9hYbTYv"); })(); </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 </body>
 </html>
