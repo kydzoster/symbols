@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html'%} 
+{% block content %}
+<div class="container-fluid my-5 py-5">
+    <div class="row mt-2 pt-2">
+        <div class="col-md-12 text-light text-center">
+            <h2>Visited a foreign Country and saw some cool looking symbols?</h2>
+            <h5>Search for a Countries name or browse an alphabetical list of Countries and their ancient symbols!</h5>
+        </div>
+    </div>
+    <div class="row mt-5 pt-5">
+        <div class="col-md-12 text-light">
+            <form class="form-inline text-light justify-content-center">
+                <div class="md-form">
+                    <!--start-->
+                    
+                    <!--end-->
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row my-1 py-1">
+        <div class="col-md-12 text-light text-center">
+            <!--start-->
+                    
+            <!--end-->
+        </div>
+    </div>
+    <div class="row my-5 py-5">
+        <div class="col-md-12 text-light text-center">
+            <h5 class="lining">Searched for a Country or a Symbol, but could not find it, however, you already know it's meaning? </h5>
+            <h5>Become a <a href="{{url_for('add_symbols')}}" class="strong">contributor</a>, others will appreciate that!</h5> 
+        </div>
+    </div>
+</div>
+{% endblock %}

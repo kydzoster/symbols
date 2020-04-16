@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% extends 'base.html'%} 
+{% block content %}
+
+
+
+<h3>Edit Category</h3>
+<div class="row">
+    <form action="{{ url_for('update_category', category_id=category._id) }}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">poll</i>
+                <input id="category_name" name="category_name" type="text" class="validate" value="{{category.category_name}}">
+                <label for="category_name">Category Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+                <i class="material-icons right">playlist_add</i>
+             </button>
+            <a href="{{ url_for('get_categories') }}" class="waves-effect waves-light btn grey">
+                <i class="material-icons right">cancel</i>Cancel
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+
+
+<!--<div class="container  my-5 py-5">
+    <div class="row no-gutters">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-muted text-uppercase text-center">Edit Country</h5>
+                    <br />
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-md-12">
+                                <form action="{{ url_for('update_country', country_id=country._id) }}" method="POST" class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">poll</i>
+                                            <input id="country_name" name="country_name" type="text" class="validate" value="{{country.country_name}}">
+                                            <label for="country_name">Country Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="form-group font-weight-bolder mr-2">
+                                                <button class="waves-effect waves-light btn btn_small" type="submit" name="action">Save</button>
+                                            </div>
+                                            <div class="form-group font-weight-bolder ml-2">
+                                                <a href="{{ url_for('get_countries') }}" class="waves-effect waves-light btn btn_small grey">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+

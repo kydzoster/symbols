@@ -35,4 +35,3 @@
 ##### 6. https://materializecss.com/pickers.html -Date picker-
 ##### 7. https://materializecss.com/select.html -Select options-
 ##### 8. https://materializecss.com/buttons.html -Submit button-
-##### 9. https://materializecss.com/navbar.html -NavBar-
