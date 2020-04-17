@@ -1,9 +1,13 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash, redirect
+from account import RegistrationForm, LoginForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = '86f701f1c759b716b1c4e0cb0e4c19fe'
+
+
 app.config["MONGO_DBNAME"] = 'symbols'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/symbols?retryWrites=true&w=majority'
 # os.getenv('MONGO_URI', 'mongodb://localhost')
@@ -95,6 +99,32 @@ def insert_category():
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
+
+
+# this code is linked to account.py and lets user to register their details to use website
+# add methods to actually receive registration data
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    # validates if data has been received after form was filled and sent
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        # after form was sent and message of success received user will be redirected to
+        return redirect(url_for('index'))
+    return render_template('register.html', title='Register', form=form)
+
+# this code is linked to account.py and lets user to login into website
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    # validates if entered data is correct
+    if form.validate_on_submit():
+        if form.email.data == 'es@es.lv' and form.password.data == 'pw':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('index'))
+        else:
+            flash('Login Unsuccessful. Please check username and password', 'danger')
+    return render_template('login.html', title='Login', form=form)
 
 
 if __name__ == '__main__':
