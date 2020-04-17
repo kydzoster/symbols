@@ -74,3 +74,4 @@ function addMeaning() {
 
     document.getElementById("meanings").appendChild(newMeaningWrapper);
 }
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+
+{% for cat in categories %}
+{% for task in tasks %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ cat.category_name }}</a>
+            </div>
+            <h2><a class="article-title" href="#">{{ task.task_name }}</a></h2>
+            <p class="article-content">{{ task.task_description }}</p>
+        </div>
+    </article>
+{% endfor %}
+{% endfor %}
+
+{% endblock %}

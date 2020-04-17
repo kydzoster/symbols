@@ -4,24 +4,28 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'task_manager'
-app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/task_manager?retryWrites=true&w=majority'
+app.config["MONGO_DBNAME"] = 'symbols'
+app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/symbols?retryWrites=true&w=majority'
 # os.getenv('MONGO_URI', 'mongodb://localhost')
-# mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/task_manager?retryWrites=true&w=majority
 
 mongo = PyMongo(app)
 
 
 @app.route('/')
+@app.route('/index')
+def index():
+    return render_template("index.html", categories=mongo.db.categories.find(), tasks=mongo.db.tasks.find())
+
+
 @app.route('/get_tasks')
 def get_tasks():
-    return render_template("tasks.html",
+    return render_template("tasks.html", title="Tasks",
                            tasks=mongo.db.tasks.find())
 
 
 @app.route('/add_task')
 def add_task():
-    return render_template('addtask.html',
+    return render_template('addtask.html', title="New Tasks",
                            categories=mongo.db.categories.find())
 
 
@@ -31,7 +35,7 @@ def insert_task():
     tasks.insert_one(request.form.to_dict())
     return redirect(url_for('get_tasks'))
 
-# edits properties of the task, due date, name etc
+# edits properties
 @app.route('/edit_task/<task_id>')
 def edit_task(task_id):
     the_task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
@@ -45,9 +49,7 @@ def update_task(task_id):
     tasks.update({'_id': ObjectId(task_id)}, {
         'task_name': request.form.get('task_name'),
         'category_name': request.form.get('category_name'),
-        'task_description': request.form.get('task_description'),
-        'due_date': request.form.get('due_date'),
-        'is_urgent': request.form.get('is_urgent')
+        'task_description': request.form.get('task_description')
     })
     return redirect(url_for('get_tasks'))
 
@@ -60,7 +62,7 @@ def delete_task(task_id):
 
 @app.route('/get_categories')
 def get_categories():
-    return render_template('categories.html', categories=mongo.db.categories.find())
+    return render_template('categories.html', title="Manage Categories", categories=mongo.db.categories.find())
 
 
 @app.route('/edit_category/<category_id>')
