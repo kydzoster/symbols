@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for, flash, red
 from account import RegistrationForm, LoginForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '86f701f1c759b716b1c4e0cb0e4c19fe'
@@ -12,6 +13,8 @@ app.config["MONGO_DBNAME"] = 'symbols'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/symbols?retryWrites=true&w=majority'
 # os.getenv('MONGO_URI', 'mongodb://localhost')
 
+db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
 mongo = PyMongo(app)
 
 
@@ -111,6 +114,24 @@ def register():
         flash(f'Account created for {form.username.data}!', 'success')
         # after form was sent and message of success received user will be redirected to
         return redirect(url_for('index'))
+    return render_template('register.html', title='Register', form=form)
+
+
+# this code is linked to forms.py and lets user to register their details to use website
+# add methods to actually receive registration data
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    # validates if data has been received after form was filled and sent
+    if form.validate_on_submit():
+        # This will generate hashed password from the user password field as a string using (.decode('utf-8'))
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash(f'Your account has been created!', 'success')
+        # after form was sent and message of success received user will be redirected to
+        return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
 # this code is linked to account.py and lets user to login into website
