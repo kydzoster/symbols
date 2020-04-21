@@ -1,14 +1,19 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, flash, redirect
-from account import RegistrationForm, LoginForm
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from datetime import datetime
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms.validators import DataRequired, Length, Email, EqualTo
+
+
 app = Flask(__name__)
-
 app.config['SECRET_KEY'] = '86f701f1c759b716b1c4e0cb0e4c19fe'
-
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config["MONGO_DBNAME"] = 'symbols'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/symbols?retryWrites=true&w=majority'
 # os.getenv('MONGO_URI', 'mongodb://localhost')
@@ -16,6 +21,45 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongod
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 mongo = PyMongo(app)
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+    password = db.Column(db.String(60), nullable=False)
+    posts = db.relationship('Post', backref='author', lazy=True)
+
+    # this will show how the object is printed when it is printed out
+    def __repr__(self):
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def __repr__(self):
+        return f"Post('{self.title}', '{self.date_posted}')"
+
+
+class RegistrationForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(min=3, max=20)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Sign Up')
+
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')
 
 
 @app.route('/')
@@ -102,20 +146,6 @@ def insert_category():
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
-
-
-# this code is linked to account.py and lets user to register their details to use website
-# add methods to actually receive registration data
-@app.route("/register", methods=['GET', 'POST'])
-def register():
-    form = RegistrationForm()
-    # validates if data has been received after form was filled and sent
-    if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        # after form was sent and message of success received user will be redirected to
-        return redirect(url_for('index'))
-    return render_template('register.html', title='Register', form=form)
-
 
 # this code is linked to forms.py and lets user to register their details to use website
 # add methods to actually receive registration data
