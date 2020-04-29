@@ -63,6 +63,39 @@ def categories():
     categories=mongo.db.categories.find())
 
 
+# This function will find properties for countries by its id with the help of ObjectId
+@app.route('/edit_category/<category_id>')
+def edit_category(category_id):
+    return render_template('edit_category.html',
+    category=mongo.db.categories.find_one({'_id': ObjectId(category_id)}))
+
+
+@app.route('/update_category/<category_id>', methods=['POST'])
+def update_category(category_id):
+    mongo.db.categories.update({'_id': ObjectId(category_id)},
+    {'category_name': request.form.get('category_name')})
+    return redirect(url_for('categories'))
+
+
+@app.route('/delete_category/<category_id>')
+def delete_category(category_id):
+    mongo.db.categories.remove({'_id': ObjectId(category_id)})
+    return redirect(url_for('categories'))
+
+
+@app.route('/insert_category', methods=['POST'])
+def insert_category():
+    categories = mongo.db.categories
+    category_doc = {'category_name': request.form.get('category_name')}
+    categories.insert_one(category_doc)
+    return redirect(url_for('categories'))
+
+
+@app.route('/add_category')
+def add_category():
+    return render_template('add_category.html')
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
