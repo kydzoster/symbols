@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<h3>Countries</h3>
+    {% for category in categories %}
+    <article class="media content-section">
+    <img class="rounded-circle article-img" src="#" alt="Profile img">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{category.category_name}}</a>
+            </div>
+            <a href="#" class="btn btn-outline-info">Delete</a>
+            <a href="#" class="btn btn-outline-success">Edit</a>
+        </div>
+        
+    </article>
+    {% endfor %}
+
+{% endblock %}
