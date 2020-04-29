@@ -3,8 +3,5 @@ import os
 class Config:
     SECRET_KEY = 'a521dc38df3cfadbef1f28d4bd120588'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
-    MAIL_SERVER = 'smtp.googlemail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('EMAIL_USER')
-    MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
+    MONGO_DBNAME = 'symbols'
+    MONGO_URI = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/symbols?retryWrites=true&w=majority'
