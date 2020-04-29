@@ -40,12 +40,12 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="#">Home</a>
-              <a class="nav-item nav-link" href="#">About</a>
+              <a class="nav-item nav-link" href="{{ url_for('symbols') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('categories') }}">Countries</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">New Post</a>
+              <a class="nav-item nav-link" href="{{ url_for('add_symbol') }}">New Post</a>
                 <a class="nav-item nav-link" href="#">Account</a>
                 <a class="nav-item nav-link" href="#">Logout</a>
             </div>

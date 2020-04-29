@@ -24,6 +24,9 @@ def add_symbol():
 # This function will deliver inserted data to MongoDB
 @app.route('/insert_symbol', methods=['POST'])
 def insert_symbol():
+    categories = mongo.db.categories
+    category_doc = {'category_name': request.form.get('category_name')}
+    categories.insert_one(category_doc)
     symbols = mongo.db.symbols
     # this line will insert one form into MongoDB as a dictionary
     symbols.insert_one(request.form.to_dict())
@@ -81,19 +84,6 @@ def update_category(category_id):
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('categories'))
-
-
-@app.route('/insert_category', methods=['POST'])
-def insert_category():
-    categories = mongo.db.categories
-    category_doc = {'category_name': request.form.get('category_name')}
-    categories.insert_one(category_doc)
-    return redirect(url_for('categories'))
-
-
-@app.route('/add_category')
-def add_category():
-    return render_template('add_category.html')
 
 
 if __name__ == '__main__':
