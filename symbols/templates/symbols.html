@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block content %}
+
+    {% for symbol in symbols %}
+    <article class="media content-section">
+    <img class="rounded-circle article-img" src="#" alt="Profile img">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{symbol.category_name}}</a>
+            </div>
+            <h2><a class="article-title" href="#">{{symbol.symbol_name}}</a></h2>
+            <p class="article-content">{{symbol.symbol_description}}</p>
+            <a href="{{ url_for('delete_symbol', symbol_id=symbol._id) }}" class="btn btn-outline-info">Delete</a>
+            <a href="{{ url_for('edit_symbol', symbol_id=symbol._id) }}" class="btn btn-outline-success">Edit</a>
+        </div>
+        
+    </article>
+    {% endfor %}
+
+{% endblock %}

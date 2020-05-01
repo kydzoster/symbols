@@ -1,5 +1,6 @@
 # Task Manager
 #### CI walkthrough project
+# pip3 install -r requirements.txt 
 
 
 ## Steps for deployment

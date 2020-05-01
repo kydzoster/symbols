@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block content %}
+<h3>Edit Country</h3>
+<div class="content-section">
+    <form action="{{ url_for('update_category', category_id=category._id) }}" method="POST">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Legend</legend>
+                <div class="form-group">
+                   <input id="category_name" name="category_name" type="text" value="{{ category.category_name }}">
+                   <label for="category_name">Country Name</label>
+                </div>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info">Edit Country</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
