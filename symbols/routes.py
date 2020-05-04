@@ -1,5 +1,5 @@
-from flask import render_template, url_for, flash, redirect
-from symbols import app
+from flask import render_template, url_for, flash, redirect, request, session
+from symbols import app, bcrypt
 from symbols.forms import RegistrationForm, LoginForm
 from bson.objectid import ObjectId
 from flask_pymongo import PyMongo
@@ -32,25 +32,54 @@ def about():
     return render_template('about.html', title='About')
 
 
-@app.route("/register", methods=['GET', 'POST'])
+@app.route('/open_register')  # For the register button
+def open_register():
+    form = mongo.db.users
+    return render_template('register.html', title='Register')
+
+
+@app.route('/register', methods=["POST", "GET"])
 def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
-    return render_template('register.html', title='Register', form=form)
+    if request.method == "POST":
+        users = mongo.db.users
+        existing_user = users.find_one({'username': request.form['username']})
+        if existing_user is None:
+            hash_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({
+                'username': request.form['username'],
+                'password': hash_password
+                })
+            session['username'] = request.form['username']
+            flash('Your account has been created successfuly!', 'success')
+            return redirect(url_for('login'))
+        else:
+            flash('This email is already taken! Please try a different email!', 'danger')
+        return render_template('register.html')
 
 
-@app.route("/login", methods=['GET', 'POST'])
+@app.route('/open_login')
+def open_login():
+    return render_template('login.html', title='Login')
+
+
+@app.route('/login', methods=["POST", "GET"])
 def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+    users = mongo.db.users
+    login_user = users.find_one({'username': request.form['username']})
+    if login_user:
+        if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+            session['username'] = request.form['username']
             flash('You have been logged in!', 'success')
             return redirect(url_for('home'))
-        else:
-            flash('Login Unsuccessful. Please check username and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+    else:
+        flash('Login Unsuccessful. Please check your credentials', 'danger')
+    return render_template('login.html', title='Login')
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
 
 
 @app.route('/symbols')
