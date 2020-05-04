@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+
+<!--Form to Log In -->
+
+<div class="container">
+	<h3 class="center welcomeHeading">Welcome Back</h3>
+    {% if message %}
+        <p class="warning">{{ message }}</p>
+    {% endif %}
+	<div class="row center ">
+		<form method="POST" action="{{url_for('login')}}" class="col s12">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="username" type="text" name="user_username" required />
+					<label for="username">Username</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="password" type="password" name="user_password" required />
+					<label for="password">Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<button href="{{url_for('login')}}" class="btn waves-effect waves-light indigo darken-4 center" type="submit" name="action">Log In
+                        <i class="material-icons right">playlist_add</i>
+                </button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<p>Don't have an account? <a href="{{url_for('register')}}">Sign Up Here</a></p>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

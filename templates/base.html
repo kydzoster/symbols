@@ -45,9 +45,13 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{{ url_for('add_symbol') }}">New Post</a>
-                <a class="nav-item nav-link" href="#">Account</a>
-                <a class="nav-item nav-link" href="#">Logout</a>
+                {% if 'user_username' not in session %}
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('add_symbol') }}">New Post</a>
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                {% endif %}
             </div>
           </div>
         </div>

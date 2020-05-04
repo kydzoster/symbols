@@ -1,11 +1,13 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, request, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import bcrypt
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'project'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/project?retryWrites=true&w=majority'
+app.config['SECRET_KEY'] = '57ffea7681cec524fff700193e5cdc11'
 mongo = PyMongo(app)
 
 
@@ -13,6 +15,56 @@ mongo = PyMongo(app)
 @app.route('/symbols')
 def symbols():
     return render_template("symbols.html", symbols=mongo.db.symbols.find())
+
+
+@app.route('/login')  # For the login Button
+def show_login():
+    return render_template('login.html')
+
+
+@app.route('/login', methods=["POST", "GET"])
+def login():
+    users = mongo.db.users
+    login_user = users.find_one({'user_username': request.form['user_username']})  #Check if user info is in the system
+
+    if login_user:
+        if bcrypt.hashpw(request.form['user_password'].encode('utf-8'), login_user['user_password']) == login_user['user_password']:
+            session['user_username'] = request.form['user_username']
+            return redirect(url_for('login'))
+    else:
+        invalid_user = 'Invalid username/password combination'
+    return render_template('login.html', message=invalid_user)
+
+
+@app.route('/register')  # For the register button
+def show_register():
+    return render_template('register.html')
+
+
+@app.route('/register', methods=["POST", "GET"])
+def register():
+    if request.method == "POST":
+        users = mongo.db.users
+        existing_user = users.find_one({
+            'user_username': request.form['user_username']
+            })  # Check if user is in the system
+        if existing_user is None:  # If not.. 
+            hashpass = bcrypt.hashpw(request.form['user_password'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({
+                'user_username': request.form['user_username'],   #Insert user info given in the form, into new user object in database
+                'user_password': hashpass
+                })
+            session['user_username'] = request.form['user_username']
+            return redirect(url_for('login'))
+        else:
+            invalid_user = 'This username already exists'
+        return render_template('register.html', message=invalid_user)
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('symbols'))
 
 
 @app.route('/add_symbol')

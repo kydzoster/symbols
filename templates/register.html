@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+
+<!--Registration form -->
+
+<div class="container">
+
+<h3 class="center registerHeading">Please Register</h3>
+{% if message %}
+    {{ message }}
+{% endif %}
+<div class="row center">
+	<form method="POST" action="{{url_for('register')}}" class="col s12">
+        <div class="row">
+			<div class="input-field col s12">
+				<input id="user_username" type="text" name="user_username" required />
+				<label for="user_username">Username</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="user_password" type="password" name="user_password" required />
+				<label for="user_password">Password</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+            		<button href="{{url_for('register')}}" class="btn waves-effect waves-light indigo darken-4" type="submit" name="action">Register
+                        <i class="material-icons right">playlist_add</i>
+                    </button>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+
+{% endblock %}
