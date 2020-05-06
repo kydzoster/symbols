@@ -24,25 +24,35 @@ def add_symbol():
     # This line will find all Countries in MongoDB
     categories=mongo.db.categories.find())
 
-# This function will deliver inserted data to MongoDB
-@app.route('/insert_symbol', methods=['POST'])
+@app.route('/insert_symbol', methods=['GET', 'POST'])
 def insert_symbol():
-    categories = mongo.db.categories
-    category_doc = {'category_name': request.form.get('category_name')}
-    categories.insert_one(category_doc)
+    word = request.form['category_name'].lower()
+    symbol_name = request.form['symbol_name'].lower()
+    symbol_description = request.form['symbol_description'].lower()
     symbols = mongo.db.symbols
-    # this line will insert one form into MongoDB as a dictionary
-    symbols.insert_one(request.form.to_dict())
-    # this line after submiting will return to symbols.html
-    return redirect(url_for('symbols'))
+    all_symbols = mongo.db.symbols.find()
+    all_words = [entry['category_name'] for entry in all_symbols]
+    
+
+    if word[0].upper() not in ALPHABET:
+        flash('A word must start with a letter!')
+        return redirect(url_for('add_symbol'))
+    
+    symbols.insert_one({
+            'category_name': word,
+            'letter': word[0].upper(),
+            'symbol_name': symbol_name,
+            'symbol_description': symbol_description
+        })
+    flash(("Entry '{}' successfully added!").format(word))
+    return redirect(url_for('symbols',word=word))
 
 
 # This function will find properties for symbols by its id with the help of ObjectId
 @app.route('/edit_symbol/<symbol_id>')
 def edit_symbol(symbol_id):
     the_symbol = mongo.db.symbols.find_one({'_id': ObjectId(symbol_id)})
-    all_categories = mongo.db.categories.find()
-    return render_template('edit_symbol.html', symbol=the_symbol, categories=all_categories)
+    return render_template('edit_symbol.html', symbol=the_symbol)
 
 
 @app.route('/update_symbol/<symbol_id>', methods=["POST"])
@@ -51,6 +61,7 @@ def update_symbol(symbol_id):
     symbols.update({'_id': ObjectId(symbol_id)},
     {
         'category_name':request.form.get('category_name'),
+        'letter': request.form.get('letter'),
         'symbol_name':request.form.get('symbol_name'),
         'symbol_description': request.form.get('symbol_description')
     })
@@ -66,7 +77,7 @@ def delete_symbol(symbol_id):
 @app.route('/categories')
 def categories():
     return render_template('categories.html', letters=ALPHABET,
-    categories=mongo.db.categories.find([]).distinct("category_name"))
+    categories=mongo.db.categories.find())
 
 
 # This function will find properties for countries by its id with the help of ObjectId

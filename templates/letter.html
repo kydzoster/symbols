@@ -8,9 +8,9 @@
                 {% if not index[0] %}
                     <h5 class="noresult">No entry found under <strong>{{letter}}</strong>.</h5>
                 {% else %}
-                    <h5>Index for <strong>{{letter}}</strong>:</h5>
+                    <h5>Countries with a letter "<strong>{{letter}}</strong>":</h5>
                     {% for word in index %}
-                        <a class="wordlink" href="{{url_for('display_word', word=word.category_name)}}">{{word.category_name}}</a>
+                        <a class="text-uppercase" href="{{url_for('display_word', word=word.category_name)}}">{{word.category_name}}</a>
                         <br>
                     {% endfor %}
                 {% endif %}
