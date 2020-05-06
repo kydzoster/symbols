@@ -4,6 +4,8 @@ from symbols.forms import RegistrationForm, LoginForm
 from bson.objectid import ObjectId
 from flask_pymongo import PyMongo
 mongo = PyMongo(app)
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+DB = mongo.db
 
 posts = [
     {
@@ -32,9 +34,8 @@ def about():
     return render_template('about.html', title='About')
 
 
-@app.route('/open_register')  # For the register button
+@app.route('/register')  # For the register button
 def open_register():
-    form = mongo.db.users
     return render_template('register.html', title='Register')
 
 
@@ -49,15 +50,14 @@ def register():
                 'username': request.form['username'],
                 'password': hash_password
                 })
-            session['username'] = request.form['username']
-            flash('Your account has been created successfuly!', 'success')
+            flash('Your account has been created successfuly! You can now Login!', 'success')
             return redirect(url_for('login'))
         else:
             flash('This email is already taken! Please try a different email!', 'danger')
         return render_template('register.html')
 
 
-@app.route('/open_login')
+@app.route('/login')
 def open_login():
     return render_template('login.html', title='Login')
 
@@ -66,8 +66,7 @@ def open_login():
 def login():
     users = mongo.db.users
     login_user = users.find_one({'username': request.form['username']})
-    if login_user:
-        if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+    if login_user and bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
             session['username'] = request.form['username']
             flash('You have been logged in!', 'success')
             return redirect(url_for('home'))
@@ -79,6 +78,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
+    flash('You have been successfully logged out!', 'success')
     return redirect(url_for('home'))
 
 
@@ -156,3 +156,40 @@ def update_category(category_id):
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('categories'))
+
+
+@app.route("/find_words", methods=["GET", "POST"])
+def find_words():
+    """Find and display word(s) matching a searchbox query."""
+    all_symbols=mongo.db.symbols.find()
+    # list comprehension method obtained from datacamp.com
+    all_words = [item["category_name"] for item in all_symbols]
+
+    search_category_name = request.form["search"].lower()
+
+    matches = []
+
+    for entry in all_words:
+        if search_category_name and entry[0:len(search_category_name)] == search_category_name:
+            matches.append(entry)
+
+    return render_template("categories.html", letters=ALPHABET,
+                           matches=matches, search_category_name=search_category_name)
+
+
+@app.route("/display_letter/<letter>")
+def display_letter(letter):
+    """Display links to all words starting with selected letter."""
+    return render_template("symbols.html",
+                           index=mongo.db.symbols.find({
+                            "letter": letter}).sort("category_name"),
+                           letter=letter,
+                           letters=ALPHABET)
+
+
+@app.route("/display_word/<word>")
+def display_word(word):
+    """Display full entry details of selected word."""
+    return render_template("symbols.html",
+                           word=mongo.db.symbols.find_one({
+                            "category_name": word}), letters=ALPHABET)

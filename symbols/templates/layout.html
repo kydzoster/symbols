@@ -34,11 +34,11 @@
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                         {% if 'username' not in session %}
-                            <a class="nav-item nav-link" href="{{ url_for('add_symbol') }}">New Post</a>
-                            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
-                        {% else %}
                             <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
                             <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                        {% else %}
+                            <a class="nav-item nav-link" href="{{ url_for('add_symbol') }}">New Post</a>
+                            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
                         {% endif %}
                         
                         
@@ -68,10 +68,34 @@
                 <div class="content-section">
                 <h3>Our Sidebar</h3>
                     <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
+                    <li class="list-group-item list-group-item-light">Info</li>
                     <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Calendars</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
+                    <li class="list-group-item list-group-item-light">
+                        <form action="{{url_for('find_words')}}" method="POST">
+                        <div id="searchbar" class="input-field">
+                            <i class="material-icons prefix">search</i>
+                            <input type="search" name="search" id="search" placeholder="Search word...">
+                        </div>
+                        </form>
+                    </li>
+                    <li class="list-group-item list-group-item-light">
+                        <div class="content">
+                            <div class="row text-frame">
+                                <div class="col s10 offset-s1">
+                                    <!-- Jinja length command obtained from Stack Overflow -->
+                                    {% if matches|length == 0 %}
+                                        <h5 class="noresult">No results found for your search.</h5>
+                                    {% else %}
+                                        <h5>Search results for <em>"{{search_term}}":</em></h5>
+                                        {% for match in matches %}
+                                        <a class="wordlink" href="{{url_for('display_word', word=match)}}">{{match}}</a>
+                                        <br/>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     </ul>
                 </div>
             </div>

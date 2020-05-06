@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+{% if not [0] %}
+<h1>No entry found for {{que.category_name}}</h1>
+{% else %}
+    {% for que in query|sort(attribute='category_name', case_sensitive=false) %}
+    <article class="media content-section">
+    <img class="rounded-circle article-img" src="#" alt="Profile img">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{que.category_name}}</a>
+            </div>
+            <h2><a class="article-title" href="#">{{que.symbol_name}}</a></h2>
+            <p class="article-content">{{que.symbol_description}}</p>
+
+            {% if "username" in session %}
+            <a href="{{url_for('delete_category', category_id=que._id)}}" class="btn btn-outline-info">Delete</a>
+            <a href="{{url_for('edit_category', category_id=que._id)}}" class="btn btn-outline-success">Edit</a>
+            {% endif %}
+        </div>
+    </article>
+    {% endfor %}
+{% endif %}
+{% endblock %}
