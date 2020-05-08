@@ -8,11 +8,16 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'project'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/project?retryWrites=true&w=majority'
 app.config['SECRET_KEY'] = '57ffea7681cec524fff700193e5cdc11'
-ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWYZ"
 
 mongo = PyMongo(app)
 
 @app.route('/')
+@app.route('/index')
+def index():
+    return render_template("index.html", letters=ALPHABET)
+
+
 @app.route('/symbols')
 def symbols():
     return render_template("symbols.html", letters=ALPHABET, symbols=mongo.db.symbols.find())

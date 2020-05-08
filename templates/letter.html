@@ -6,7 +6,7 @@
         <div class="row text-frame">
             <div class="col s10 offset-s1">
                 {% if not index[0] %}
-                    <h5 class="noresult">No entry found under <strong>{{letter}}</strong>.</h5>
+                    <h5 class="noresult">No entry found under <strong>{{letter}}</strong>, would you like to <a href="{{url_for('add_symbol')}}">add one</a>?</h5>
                 {% else %}
                     <h5>Countries with a letter "<strong>{{letter}}</strong>":</h5>
                     {% for word in index %}
