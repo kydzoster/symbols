@@ -1,78 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    
-    <!-- Custom css -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
-    <!--this is a default title if no other title is provided-->
-    <title>Symbols</title>
-  </head>
-
-  <body class="view" style="background-image: url('/static/img/index.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-                        <main role="main" class="container">
-                            <div class="row mask rgba-gradient align-items-center mt-5">
-                            <div class="col-md-12 mt-4">
-                                <div class="content-section">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8" />
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/>
+<!-- Bootstrap CSS -->
+<link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+/>
+<!-- Custom css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+<!--this is a default title if no other title is provided-->
+<title>Symbols</title>
+</head>
+<body class="view" style="background-image: url('/static/img/index.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <main role="main" class="container">
+        <div class="row mask rgba-gradient align-items-center mt-5">
+        <div class="col-md-12 mt-4">
+            <div class="content-section">
+                <h1 class="text-center">Ancient Symbol Database</h1>
+                <ul class="list-group align-items-center text-center">
+                    <li class="list-group-item list-group-item-light mt-1">
+                        <form action="{{ url_for('get_search') }}">
+                        <label for="Search">Search for a Country</label>
+                            <div id="nav-search" class="col s3 offset-m1 offset-l2 center active">
                                 
-                                    <h1 class="text-center">Ancient Symbol Database</h1>
-                                    <ul class="list-group align-items-center text-center">
-                                        <li class="list-group-item list-group-item-light">Pick a Country by it's Letter
-                                            <div id="letternav">
-                                                <ul id="letter-links">
-                                                {% for letter in letters %}
-                                                <li><a class="letter-link" href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a></li>
-                                                {% endfor %}
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item list-group-item-light mt-1">
-                                            <form action="{{ url_for('get_search') }}">
-                                                <div id="nav-search" class="col s3 offset-m1 offset-l2 center active">
-                                                    <input type="text" id="q" name="q" placeholder="Search for a Country">
-                                                </div>
-                                                    <button class="btn btn-outline-success mt-1" type="submit"><i class="material-icons">Search</i></button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <input type="text" id="q" name="q" placeholder="e.g. Latvia">
                             </div>
-                            </div>
-                        </main>
-    <!-- JavaScript -->
-    <!-- jQuery-->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Popper.js -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Bootstrap JS -->
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    
-    
-  
-  </body>
+                                <button class="btn btn-outline-success mt-1" type="submit"><i class="material-icons">Search</i></button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </main>
+<!-- JavaScript -->
+<!-- jQuery-->
+<script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+></script>
+<!-- Popper.js -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+></script>
+<!-- Bootstrap JS -->
+<script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+></script>
+</body>
 </html>

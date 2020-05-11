@@ -1,45 +1,31 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% block content %}
-<h3>Edit Symbol</h3>
-<div class="content-section">
-    <form action="{{ url_for('update_symbol', symbol_id=symbol._id) }}" method="POST">
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Legend</legend>
-            
-                <div class="form-group">
-                <label for="category_name">Select Country:</label>
-                <select id="category_name" name="category_name" class="form-control">
-                    <option value="" disabled selected>Choose Country</option>
-                    {% for cat in categories %}
-                        <!--If Country name matches country name we are editing from, then it will select that country name-->
-                        {% if cat.category_name == symbol.category_name %}
-                            <!--This will display Country name if the above line was True-->
-                            <option value="{{ cat.category_name }}" selected>{{ cat.category_name }}</option>
-                            {% else %}
-                            <option value="{{ cat.category_name }}">{{ cat.category_name }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-                </div>
-
-
-            <div class="form-group">
-              
-                   <input id="symbol_name" name="symbol_name" type="text" value="{{ symbol.symbol_name }}">
-                   <label for="symbol_name">Symbol Name</label>
-               
-            </div>
-            <div class="form-group">
-                    <textarea id="symbol_description" name="symbol_description" type="textarea">{{ symbol.symbol_description }}</textarea>
-                   <label for="symbol_name">Symbol Description</label>
-                
-            </div>
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info">Edit Symbol</button>
+    {% if "username" in session %}
+        <h3>Edit Symbol</h3>
+        <div class="content-section">
+            <form action="{{ url_for('update_symbol', symbol_id=symbol._id) }}" method="POST">
+                <fieldset class="form-group">
+                <br>
+                    <div class="form-group">
+                        <label for="category_name">Country Name</label>
+                        <input class="form-control form-control-lg text-uppercase" id="category_name" name="category_name" type="text" value="{{ symbol.category_name }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="symbol_name">Symbol Name</label>
+                        <input class="form-control form-control-lg" id="symbol_name" name="symbol_name" type="text" value="{{ symbol.symbol_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="symbol_name">Symbol Description</label>
+                        <textarea class="form-control form-control-lg" id="symbol_description" name="symbol_description" type="textarea" >{{ symbol.symbol_description }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info">Update Symbol</button>
+                    </div>
+                </fieldset>
+            </form>
         </div>
-    </form>
-</div>
-
+    {% else %}
+        <h1>Please <a href="{{ url_for('open_login') }}">Login</a> to add a symbol</h1>
+    {% endif %}
 {% endblock %}

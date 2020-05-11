@@ -15,42 +15,37 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("index.html", letters=ALPHABET)
+    return render_template("index.html",)
 
 
 @app.route('/symbols')
 def symbols():
-    return render_template("symbols.html", letters=ALPHABET, symbols=mongo.db.symbols.find())
+    return render_template("symbols.html", symbols=mongo.db.symbols.find())
 
 
 @app.route('/add_symbol')
 def add_symbol():
-    return render_template('add_symbol.html', letters=ALPHABET,
+    return render_template('add_symbol.html',
     # This line will find all Countries in MongoDB
     categories=mongo.db.categories.find())
 
 @app.route('/insert_symbol', methods=['GET', 'POST'])
 def insert_symbol():
-    word = request.form['category_name'].lower()
-    symbol_name = request.form['symbol_name'].lower()
+    symbol = request.form['category_name'].upper()
+    symbol_name = request.form['symbol_name'].upper()
     symbol_description = request.form['symbol_description'].lower()
     symbols = mongo.db.symbols
     all_symbols = mongo.db.symbols.find()
     all_words = [entry['category_name'] for entry in all_symbols]
-    
 
-    if word[0].upper() not in ALPHABET:
-        flash('A word must start with a letter!')
-        return redirect(url_for('add_symbol'))
-    
     symbols.insert_one({
-            'category_name': word,
-            'letter': word[0].upper(),
+            'category_name': symbol,
             'symbol_name': symbol_name,
             'symbol_description': symbol_description
         })
-    flash(("Entry '{}' successfully added!").format(word))
-    return redirect(url_for('symbols',word=word))
+    flash(('"{}" has been successfully added to').format(symbol_name), 'success')
+    flash(('{}!').format(symbol), 'info')
+    return redirect(url_for('symbols',symbol=symbol))
 
 
 # This function will find properties for symbols by its id with the help of ObjectId
@@ -66,7 +61,6 @@ def update_symbol(symbol_id):
     symbols.update({'_id': ObjectId(symbol_id)},
     {
         'category_name':request.form.get('category_name'),
-        'letter': request.form.get('letter'),
         'symbol_name':request.form.get('symbol_name'),
         'symbol_description': request.form.get('symbol_description')
     })
@@ -81,33 +75,13 @@ def delete_symbol(symbol_id):
 
 @app.route('/categories')
 def categories():
-    return render_template('categories.html', letters=ALPHABET,
-    categories=mongo.db.categories.find())
-
-
-# This function will find properties for countries by its id with the help of ObjectId
-@app.route('/edit_category/<category_id>')
-def edit_category(category_id):
-    return render_template('edit_category.html',
-    category=mongo.db.categories.find_one())
-
-
-@app.route('/update_category/<category_id>', methods=['POST'])
-def update_category(category_id):
-    mongo.db.categories.update({'_id': ObjectId(category_id)},
-    {'category_name': request.form.get('category_name')})
-    return redirect(url_for('categories'))
-
-
-@app.route('/delete_category/<category_id>')
-def delete_category(category_id):
-    mongo.db.categories.remove({'_id': ObjectId(category_id)})
-    return redirect(url_for('categories'))
+    return render_template('categories.html',
+    categories=mongo.db.symbols.distinct("category_name"))
 
 
 @app.route('/register')  # For the register button
 def open_register():
-    return render_template('register.html', letters=ALPHABET, title='Register')
+    return render_template('register.html', title='Register')
 
 
 @app.route('/register', methods=["POST", "GET"])
@@ -130,7 +104,7 @@ def register():
 
 @app.route('/login')
 def open_login():
-    return render_template('login.html', letters=ALPHABET, title='Login')
+    return render_template('login.html', title='Login')
 
 
 @app.route('/login', methods=["POST", "GET"])
@@ -167,24 +141,6 @@ def get_search():
     print(query)
     return render_template(
         'search.html',  query=results)  # Pass the results to the view
-
-
-@app.route("/display_letter/<letter>")
-def display_letter(letter):
-    """Display links to all words starting with selected letter."""
-    return render_template("letter.html",
-                           index = mongo.db.symbols.find({
-                            "letter": letter}).sort("category_name"),
-                           letter=letter,
-                           letters=ALPHABET)
-
-
-@app.route("/display_word/<word>")
-def display_word(word):
-    """Display full entry details of selected word."""
-    return render_template("symbols.html",
-                           word=mongo.db.symbols.find_one({
-                            "category_name": word}), letters=ALPHABET)
 
 
 if __name__ == '__main__':

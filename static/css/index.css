@@ -55,9 +55,7 @@ ul, li {
   padding: 0.8rem;
 }
 
-.wordlink:hover, 
-.letter-link:hover,
-#ethos a:hover {
+.letter-link:hover {
   color: #ffffff;
   text-decoration: none;
 }
@@ -99,9 +97,9 @@ margin-bottom: 20px;
 }
 
 .rgba-gradient {
-  background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-  background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-  background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));
-  background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-  background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+  background: -moz-linear-gradient(45deg, rgb(165,135,99), rgb(219, 219, 191) 100%);
+  background: -webkit-linear-gradient(45deg, rgb(165,135,99), rgb(219, 219, 191) 100%);
+  background: -o-linear-gradient(45deg, rgb(165,135,99), rgb(219, 219, 191) 100%);
+  background: linear-gradient(to 45deg, rgb(165,135,99), rgb(219, 219, 191) 100%);
+  opacity: 0.9;
 }

@@ -74,31 +74,19 @@
             </div>
             <div class="col-md-4">
                 <div class="content-section">
-                    <h3>Our Sidebar</h3>
-                    <p class="text-muted">You can put any information here you'd like.
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-light">Add Symbol</li>
-                        <li class="list-group-item list-group-item-light">Announcements</li>
-                        <li class="list-group-item list-group-item-light">Letters
-                            <div id="letternav">
-                                <ul id="letter-links">
-                                <li id="index-title">Index</li>
-                                {% for letter in letters %}
-                                <li><a class="letter-link" href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a></li>
-                                {% endfor %}
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="list-group-item list-group-item-light">Search
+                    <h3 class="text-center">Searchbar</h3>
+                    <ul class="list-group align-items-center text-center">
+                        <li class="list-group-item list-group-item-light mt-1">
                             <form action="{{ url_for('get_search') }}">
+                            <label for="Search">Search for a Country</label>
                                 <div id="nav-search" class="col s3 offset-m1 offset-l2 center active">
-                                    <input type="text" id="q" name="q" placeholder="Search Country">
+                                    
+                                    <input type="text" id="q" name="q" placeholder="e.g. Latvia">
                                 </div>
-                                    <button class="btn-floating btn-large waves-effect waves-#377A59" type="submit"><i class="material-icons">search</i></button>
+                                    <button class="btn btn-outline-success mt-1" type="submit"><i class="material-icons">Search</i></button>
                             </form>
                         </li>
                     </ul>
-                    </p>
                 </div>
             </div>
         </div>

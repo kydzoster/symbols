@@ -1,47 +1,31 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% block content %}
-<h3>Add Symbol</h3>
-<div class="content-section">
-    <form action="{{ url_for('insert_symbol') }}" method="POST">
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Legend</legend>
-            
-                <div class="form-group">
-                <label for="category">Select Country:</label>
-                <select id="category" name="category_name" class="form-control">
-                    <option value="" disabled selected>Choose Country</option>
-                    {% for cat in categories %}
-                        <!--This will display Country list-->
-                        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                    {% endfor %}
-                </select>
-                </div>
-
-<fieldset class="form-group">
-    <legend class="border-bottom mb-4">Legend</legend>
-        <div class="form-group">
-            <input id="category_name" name="category_name" type="text">
-            <label for="category_name">Country Name</label>
+    {% if "username" in session %}
+        <h3>Add Symbol</h3>
+        <div class="content-section">
+            <form action="{{ url_for('insert_symbol') }}" method="POST">
+                <fieldset class="form-group">
+                <br>
+                    <div class="form-group">
+                        <label for="category_name">Country Name</label>
+                        <input class="form-control form-control-lg" id="category_name" name="category_name" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="symbol_name">Symbol Name</label>
+                        <input class="form-control form-control-lg" id="symbol_name" name="symbol_name" type="text" >
+                    </div>
+                    <div class="form-group">
+                        <label for="symbol_name">Symbol Description</label>
+                        <textarea class="form-control form-control-lg" id="symbol_description" name="symbol_description" type="textarea" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info">Add Symbol</button>
+                    </div>
+                </fieldset>
+            </form>
         </div>
-</fieldset>
-
-            <div class="form-group">
-              
-                   <input id="symbol_name" name="symbol_name" type="text" >
-                   <label for="symbol_name">Symbol Name</label>
-               
-            </div>
-            <div class="form-group">
-                    <textarea id="symbol_description" name="symbol_description" type="textarea" ></textarea>
-                   <label for="symbol_name">Symbol Description</label>
-                
-            </div>
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info">Add Symbol</button>
-        </div>
-    </form>
-</div>
-
+    {% else %}
+        <h1>Please <a href="{{ url_for('open_login') }}">Login</a> to add a symbol</h1>
+    {% endif %}
 {% endblock %}
