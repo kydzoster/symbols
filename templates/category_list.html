@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} 
+{% block content %}
+    {% for symbol in symbols %}
+		<h1>{{symbol.category_name}}</h1>
+	{% endfor %}
+{% endblock %}
+
+		

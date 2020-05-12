@@ -1,6 +1,6 @@
 import os
 from flask import Flask, flash, render_template, redirect, request, url_for, request, session
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 import bcrypt
 
@@ -8,7 +8,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'project'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@my1stcluster-phyn3.mongodb.net/project?retryWrites=true&w=majority'
 app.config['SECRET_KEY'] = '57ffea7681cec524fff700193e5cdc11'
-ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWYZ"
 
 mongo = PyMongo(app)
 
@@ -20,27 +19,27 @@ def index():
 
 @app.route('/symbols')
 def symbols():
-    return render_template("symbols.html", symbols=mongo.db.symbols.find())
+    return render_template("symbols.html", symbols = mongo.db.symbols.find())
 
 
 @app.route('/add_symbol')
 def add_symbol():
-    return render_template('add_symbol.html',
-    # This line will find all Countries in MongoDB
-    categories=mongo.db.categories.find())
+    return render_template('add_symbol.html')
+
 
 @app.route('/insert_symbol', methods=['GET', 'POST'])
 def insert_symbol():
     symbol = request.form['category_name'].upper()
     symbol_name = request.form['symbol_name'].upper()
-    symbol_description = request.form['symbol_description'].lower()
+    symbol_description = request.form['symbol_description']
+    symbol_img = request.form['symbol_img']
     symbols = mongo.db.symbols
     all_symbols = mongo.db.symbols.find()
-    all_words = [entry['category_name'] for entry in all_symbols]
 
     symbols.insert_one({
             'category_name': symbol,
             'symbol_name': symbol_name,
+            'symbol_img': symbol_img,
             'symbol_description': symbol_description
         })
     flash(('"{}" has been successfully added to').format(symbol_name), 'success')
@@ -62,6 +61,7 @@ def update_symbol(symbol_id):
     {
         'category_name':request.form.get('category_name'),
         'symbol_name':request.form.get('symbol_name'),
+        'symbol_img': request.form.get('symbol_img'),
         'symbol_description': request.form.get('symbol_description')
     })
     return redirect(url_for('symbols'))
@@ -77,6 +77,12 @@ def delete_symbol(symbol_id):
 def categories():
     return render_template('categories.html',
     categories=mongo.db.symbols.distinct("category_name"))
+
+
+@app.route('/category_list', methods=["POST", "GET"])
+def category_list():
+    country = ['category_name']
+    return render_template('category_list.html', symbols = mongo.db.symbols.find({'category_name': country}))
 
 
 @app.route('/register')  # For the register button
@@ -130,10 +136,6 @@ def logout():
 # GET METHOD for Search Bar
 @app.route('/get_search')
 def get_search():
-    """
-    Route to accept a GET request to perform
-    a search
-    """
     query = request.args.get('q')
     results = mongo.db.symbols.find(
         {"category_name": {"$regex": query, "$options": 'i'}})

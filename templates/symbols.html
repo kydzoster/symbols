@@ -4,12 +4,12 @@
 
     {% for symbol in symbols %}
     <article class="media content-section">
-    <img class="rounded-circle article-img" src="#" alt="Profile img">
+    <img class="rounded-circle article-img" src="{{symbol.symbol_img}}" alt="Profile img">
         <div class="media-body">
             <div class="article-metadata">
-                <a class="mr-2" href="#">{{symbol.category_name}}</a>
+                <h2><a class="article-title">{{symbol.symbol_name}}</a></h2>
+                <h5><a class="mr-2">{{symbol.category_name}}</a></h5>
             </div>
-            <h2><a class="article-title" href="#">{{symbol.symbol_name}}</a></h2>
             <p class="article-content">{{symbol.symbol_description}}</p>
             {% if "username" in session %}
             <a href="{{ url_for('delete_symbol', symbol_id=symbol._id) }}" class="btn btn-outline-info">Delete</a>
