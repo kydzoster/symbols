@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% block content %}
-
-{% if not query %}
-
-    <h1>This name is not in our DB, would you like to add it?</h1>
-
-{% else %}
-
-{% for que in query %}
-
-    <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{que.symbol_img}}" alt="Symbol Image">
-        <div class="media-body">
-            <div class="article-metadata">
-                <h2><a class="article-title">{{que.symbol_name}}</a></h2>
-                <h5><a class="mr-2">{{que.category_name}}</a></h5>
-            </div>
-            <p class="article-content">{{que.symbol_description}}</p>
-        </div>
-    </article>
-
-
-
-{% endfor %}
-{% endif %}
+    {% if not query %}
+        <h1 class="text-center">This name is not in our DataBase, would you like to  <a class="strong" href="{{ url_for('add_symbol') }}">add</a> it?</h1>
+    {% else %}
+        {% for que in query %}
+            <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{que.symbol_img}}" alt="Symbol Image">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <h2><a class="article-title">{{que.symbol_name}}</a></h2>
+                        <h5><a class="mr-2">{{que.category_name}}</a></h5>
+                    </div>
+                    <p class="article-content">{{que.symbol_description}}</p>
+                </div>
+            </article>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

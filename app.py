@@ -87,7 +87,7 @@ def category_list():
     return render_template('category_list.html', symbols = mongo.db.symbols.find({'category_name': country}))
 
 
-@app.route('/register')  # For the register button
+@app.route('/register')
 def open_register():
     return render_template('register.html', title='Register')
 
@@ -141,7 +141,7 @@ def get_search():
     results = mongo.db.symbols.find({"category_name": {"$regex": query, "$options": 'i'}})
     print(query)
     print(results)
-    return render_template('search.html',  query=list(results))
+    return render_template('search.html', query=list(results))
 
 
 if __name__ == '__main__':
