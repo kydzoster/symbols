@@ -19,7 +19,7 @@ def index():
 
 @app.route('/symbols')
 def symbols():
-    return render_template("symbols.html", symbols = mongo.db.symbols.find())
+    return render_template("symbols.html", symbols = mongo.db.symbols.find().sort('symbol_name'))
 
 
 @app.route('/add_symbol')
@@ -81,6 +81,8 @@ def categories():
 
 @app.route('/category_list', methods=["POST", "GET"])
 def category_list():
+    a = list(mongo.db.symbols.find({"category_name": country}))
+    length = len(a)
     country = ['category_name']
     return render_template('category_list.html', symbols = mongo.db.symbols.find({'category_name': country}))
 
@@ -133,16 +135,13 @@ def logout():
     return redirect(url_for('symbols'))
 
 
-# GET METHOD for Search Bar
 @app.route('/get_search')
 def get_search():
     query = request.args.get('q')
-    results = mongo.db.symbols.find(
-        {"category_name": {"$regex": query, "$options": 'i'}})
-      # Grab the arugments via GET request
+    results = mongo.db.symbols.find({"category_name": {"$regex": query, "$options": 'i'}})
     print(query)
-    return render_template(
-        'search.html',  query=results)  # Pass the results to the view
+    print(results)
+    return render_template('search.html',  query=list(results))
 
 
 if __name__ == '__main__':
