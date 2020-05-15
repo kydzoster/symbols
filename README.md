@@ -1,5 +1,3 @@
-# Task Manager
-#### CI walkthrough project
 # pip3 install -r requirements.txt 
 
 
@@ -25,14 +23,3 @@
 
 ##### 1. Install ***pip3 install flask-pymongo*** for flask to be able to work with MongoDB
 ##### 2. Install ***pip3 install dnspython*** for new style connection string for MongoDB
-
-## Libraries, Templates
-
-##### 1. https://materializecss.com/collapsible.html -Accordion, collapsible task bars-
-##### 2. https://material.io/resources/icons/?icon=expand_more&style=baseline -Icons from Material.io-
-##### 3. Added few more categories in MangoDB Atlas
-##### 4. https://materializecss.com/text-inputs.html -Icon Prefixes from Form Templates-
-##### 5. https://materializecss.com/switches.html -styled switches-
-##### 6. https://materializecss.com/pickers.html -Date picker-
-##### 7. https://materializecss.com/select.html -Select options-
-##### 8. https://materializecss.com/buttons.html -Submit button-
