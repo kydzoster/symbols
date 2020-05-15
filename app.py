@@ -81,10 +81,9 @@ def categories():
 
 @app.route('/category_list', methods=["POST", "GET"])
 def category_list():
-    a = list(mongo.db.symbols.find({"category_name": country}))
+    a = list(mongo.db.symbols.find({"category_name": ""}))
     length = len(a)
-    country = ['category_name']
-    return render_template('category_list.html', symbols = mongo.db.symbols.find({'category_name': country}))
+    return render_template('category_list.html', symbols = mongo.db.symbols.find({'category_name': ""}))
 
 
 @app.route('/register')
