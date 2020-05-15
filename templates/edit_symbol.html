@@ -13,15 +13,15 @@
                     </div>
                     <div class="form-group">
                         <label for="symbol_name">Symbol Name</label>
-                        <input class="form-control form-control-lg" id="symbol_name" name="symbol_name" type="text" value="{{ symbol.symbol_name }}">
+                        <input class="form-control form-control-lg" id="symbol_name" name="symbol_name" type="text" value="{{ symbol.symbol_name }}" required>
                     </div>
                     <div class="form-group">
                         <label for="symbol_img">Symbol Image</label>
-                        <input class="form-control form-control-lg" id="symbol_img" name="symbol_img" type="text" placeholder="copy img URL here" required />
+                        <input class="form-control form-control-lg" id="symbol_img" name="symbol_img" type="text" placeholder="copy img URL here" required >
                     </div>
                     <div class="form-group">
                         <label for="symbol_name">Symbol Description</label>
-                        <textarea class="form-control form-control-lg" id="symbol_description" name="symbol_description" type="textarea" >{{ symbol.symbol_description }}</textarea>
+                        <textarea class="form-control form-control-lg" id="symbol_description" name="symbol_description" type="textarea" required>{{ symbol.symbol_description }}</textarea>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-outline-info">Update Symbol</button>

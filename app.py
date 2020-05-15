@@ -79,11 +79,10 @@ def categories():
     categories=mongo.db.symbols.distinct("category_name"))
 
 
-@app.route('/category_list', methods=["POST", "GET"])
-def category_list():
-    a = list(mongo.db.symbols.find({"category_name": ""}))
-    length = len(a)
-    return render_template('category_list.html', symbols = mongo.db.symbols.find({'category_name': ""}))
+@app.route('/categories/<category_name>')
+def categories(category_name):
+    var = find=mongo.db.symbols.find({'category_name': category_name})
+    return render_template('categories.html', find=var, category_name=category_name)
 
 
 @app.route('/register')

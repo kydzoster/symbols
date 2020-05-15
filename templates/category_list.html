@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 {% extends 'base.html' %} 
 {% block content %}
-    {% for symbol in symbols %}
-		<h1>{{symbol.category_name}}</h1>
+    {% for country in find %}
+		<article class="media content-section">
+            <img class="rounded-circle article-img" src="{{country.symbol_img}}" alt="Symbol Image">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <h2><a class="article-title">{{country.symbol_name}}</a></h2>
+                        <h5><a class="mr-2">{{country.category_name}}</a></h5>
+                    </div>
+                    <p class="article-content">{{country.symbol_description}}</p>
+                </div>
+            </article>
 	{% endfor %}
 {% endblock %}
 
