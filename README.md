@@ -133,7 +133,7 @@ logged in. It also collapses on mobile screens.
 
 * [MongoDB](https://www.mongodb.com/)
 
-* [Materialize](https://getbootstrap.com/)
+* [Bootstrap](https://getbootstrap.com/)
 * Jquery
 * flask
 * flask_pymongo
