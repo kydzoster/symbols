@@ -1,11 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700");
+@import url("https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap");
+
 body {
     background: #fafafa;
     color: #333333;
     margin-top: 5rem;
+    font-family: 'Roboto', sans-serif;
   }
   
 h1, h2, h3, h4, h5, h6 {
 color: #444444;
+font-family: 'Skranji', cursive;
 }
 
 .bg-steel {
@@ -60,21 +65,4 @@ border-bottom: 1px solid #e3e3e3
 .article-metadata a:hover {
 color: #333;
 text-decoration: none;
-}
-
-.article-svg {
-width: 25px;
-height: 25px;
-vertical-align: middle;
-}
-
-.account-img {
-height: 125px;
-width: 125px;
-margin-right: 20px;
-margin-bottom: 16px;
-}
-
-.account-heading {
-font-size: 2.5rem;
 }
