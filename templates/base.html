@@ -57,7 +57,7 @@
         </div>
       </nav>
     </header>
-    <main role="main" class="container">
+    <main class="container">
         <div class="row">
             <div class="col-md-8">
                 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -78,12 +78,12 @@
                     <ul class="list-group align-items-center text-center">
                         <li class="list-group-item list-group-item-light mt-1">
                             <form action="{{ url_for('get_search') }}">
-                            <label for="Search">Search for a Country</label>
+                            <label>Search for a Country</label>
                                 <div id="nav-search" class="col s3 offset-m1 offset-l2 center active">
                                     
                                     <input type="text" id="q" name="q" placeholder="e.g. Latvia">
                                 </div>
-                                    <button class="btn btn-outline-success mt-1" type="submit"><i class="material-icons">Search</i></button>
+                                    <button class="btn btn-outline-success mt-1" type="submit">Search</button>
                             </form>
                         </li>
                     </ul>

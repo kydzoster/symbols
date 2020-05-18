@@ -149,52 +149,16 @@ I began my testing using..
 - [HTML WC3 Markup Validation Service.](https://validator.w3.org/)
 - [CSS WC3 Markup Validation Service](https://jigsaw.w3.org/css-validator/)
 
-#### Mid-point CSS Validation bugs:
+#### CSS Validation bugs:
 
-- line 227 - min-wdith is an unknown vendor extension (Corrected typo)
-- line 213 - Same color for background-color and color (I kept this the same otherwise the line is not a block colour.)
+- No errors for style.css
 
-#### Mid-point HTML Validation bugs:
+#### HTML Validation bugs:
 
-- Throughout all my html pages I had forgotton to add an alt tag to my images (Corrected)
+- There are 8 errors in base.html related to (Illegal character in path segment: { is not allowed).
+- All other html documents have errors related to (Illegal character in path segment: { is not allowed).
+- All other html documents have errors related to missing (lang and head elements)
 
-#### Final HTML Validation bugs:
-
--  The value of the for attribute of the label element must be the ID of a non-hidden form control.
-- Attribute required is only allowed when the input type is checkbox, date, datetime-local, email, file, month, number, password, radio, search, tel, text, time, url, or week.
-
-#### Final CSS Validation bugs:
-
-- Congratulations! No Error Found.
-
-### Bugs during developement
-
-1. The columns the cards from Materialize were in, were not centering inside their row.
-* [Solution](https://stackoverflow.com/questions/50671682/center-align-items-in-materializecss-row): Add a flexbox class to the column you need to center. Add custom styles to center. 
-
-2. Edit book function, when you edit a book, the book would disappear. 
-* Solution - I needed to add a 'username' field in the form, and in turn tell the function to pull the 'added by' username from the form and fill
-that field in the database. Once I made those changes, the new edited version had the same username in the 'added_by' field as before and therefore
-showed up correctly on the 'My Books' page with the correct changes made. 
-
-3. Following from the bug above, I now need to make sure all fields are required, otherwise the book may not show in 'My Books', and the display will not look good. 
-I added 'required' to the end of each input but this did not work. 
-* [Solution](https://stackoverflow.com/questions/17966390/html5-required-attribute-seems-not-working) - I found a stack overflow post voicing the same bug, 
-the solution was to close the input tags properly /> 
-
-4. The height of my cards. The height of the card was changing dependant on how much text you wrote in the 'comments' sections. This was a problem
-as design wise, it did not look good all the cards different heights. Also the cards overspill into other containers.
-* Solution - Set a max charactor limit on each comments input. I found out what height the card was when all the charactors were used and set all cards
-to be that height. 
-
-5. The main heading 'Welcome to I-brary' would break at I-brary due to the hiphen.
-* [Solution](https://css-tricks.com/forums/topic/prevent-word-breaks/) I copy and pasted a non-breaking-hyphen entity from the post linked. 
-
-6. On the 'Add Book' and 'Edit Book' forms, I inserted a range slide from materialize but could not work out how to chnage the colour of the dot underneath the thumb. 
-* [Solution](https://stackoverflow.com/questions/40534973/changing-the-color-of-the-range-slider-in-materializecss) The CSS needed was provided on this stack overflow post. 
-
-7. The autofill background colour Google Chrome had as a default didn't suit the design of the site. 
-* [Solution](https://stackoverflow.com/questions/2781549/removing-input-background-colour-for-chrome-autocomplete) Adding a few lines of css changing the default CSS. 
 
 #### Client Stories Testing
 
