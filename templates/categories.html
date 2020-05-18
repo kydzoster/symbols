@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% block content %}
-<h3>Countries in Database</h3>
+<h3>Countries currently in our Database</h3>
     {% for category in categories %}
     <article class="media content-section">
         <div class="media-body">
             <div class="article-metadata">
-                <a class="mr-2" href="{{ url_for('category_list') }}">{{category}}</a>
+                <a class="mr-2" href="{{ url_for('category_list', category_id=category._id) }}">{{category}}</a>
             </div>
         </div>
     </article>

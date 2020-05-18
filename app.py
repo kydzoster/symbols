@@ -75,14 +75,24 @@ def delete_symbol(symbol_id):
 
 @app.route('/categories')
 def categories():
-    return render_template('categories.html',
-    categories=mongo.db.symbols.distinct("category_name"))
+    return render_template('categories.html', categories=mongo.db.symbols.distinct("category_name"))
 
 
-@app.route('/categories/<category_name>')
-def categories(category_name):
-    var = find=mongo.db.symbols.find({'category_name': category_name})
-    return render_template('categories.html', find=var, category_name=category_name)
+@app.route('/category_list/<category_id>')
+def category_list(category_id):
+    return render_template('category_list.html', category=mongo.db.symbols.find_one({'_id': ObjectId(category_id)}))
+
+
+@app.route('/popu_category/<category_id>', methods=["POST"])
+def popu_category(category_id):
+    category = mongo.db.symbols
+    category.find({'_id': ObjectId(category_id)},
+    {
+        'category_name':request.form.get('category_name'),
+        'symbol_name':request.form.get('symbol_name'),
+        'symbol_img': request.form.get('symbol_img'),
+        'symbol_description': request.form.get('symbol_description')
+    })
 
 
 @app.route('/register')
@@ -104,7 +114,7 @@ def register():
             flash('Your account has been created successfuly! You can now Login!', 'success')
             return redirect(url_for('login'))
         else:
-            flash('This email is already taken! Please try a different email!', 'danger')
+            flash('This username is already taken! Please try a different username!', 'danger')
         return render_template('register.html')
 
 
