@@ -60,9 +60,11 @@ Therefore, site should be easy on eye, with no bright or flashing colours.
 1. Font
 * The font I chose was 'Skranji' due to it's 'Pagan looks' for Headings and Roboto for other text. 
 
-2. Colour
+2. Colours
 * I chose SteelBlue as my main colour because it is known as a very calm colour.
 * I chose #fafafa background for its simplicity and dark headings
+* I chose blue delete button and greedn edit button
+* I chose green flash messages for success and red for errors
 
 3. Styling
 * Bootstrap.
@@ -91,33 +93,32 @@ All Wireframes were made using [Balsamiq](https://balsamiq.com/)
 ## Features
 
 + Nav Bar
- The Nav Bar is fixed at all times, includes a logo and links to 'Home', 'Log In' and 'Register' when not logged in, and 'Home', 'Add Book', 'My Books' and 'Log Out' when not
-logged in. It also collapses on small and medium screens. 
+ The Nav Bar is fixed at all times, includes a logo and links to 'Symbols'-aka index, 'Home', 'Countries', 'Log In' and 'Register' when not logged in, and 'Symbols', 'Home', 'Countries', 'New Symbol' and 'Log Out' when
+logged in. It also collapses on mobile screens. 
 
 + Log In / Register options.
- There are Log in and Registration options in both the collapsable nav bar, standard nav bar and in the footer. It is important for this site to have register and log in Features
-so you are able to add and save your own books. 
+ There are Log in and Registration options in both the collapsable nav bar and standard nav bar.
 
-+ My books view.
- The My books views allows you to store, edit and delete all the books you have uploaded. 
++ Countries.
+ The Countries page allows a user to see what countries currently are in the database to avoid useless search for countless of countries with symbols. 
 
-+ Ability to add a book to your own view through the use of a switch. 
- Used to share a book onto the homepage or just store for your own purpose. 
++ New Symbol.
+ The New symbol allows to insert Country name, Symbol name, Symbol Image and Symbol Description, all fields are mandatory. 
 
 + Footer.
- The Footer includes copyright information in regards to the site, social links taking you to the developers GitHub and LinkedIn and a Register option if you aren't already a member.
+ The Footer includes copyright information in regards to the site and social links taking you to the developers GitHub and LinkedIn pages.
 
 ## Features left to Implement
 
-+ Search by Genre filter.
- Once the site is more established and therefore has more people uploading books, there will be a need to filter down the book choices via Genre.
++ Edit and Delete only your content.
 
-+ Able to save other books from the homepage into your own 'My Books' view.
- The goal of the site in the long run will be to essentially save and 'buy/download' therefore we will need an option to save a book into the 'My Books' view, very similar to a shopping cart in online shopping. 
++ Alphabetical search when there are hundreds of countries, currently it is not feasable for a few countries.
 
-+ Ability to buy/download the books on the homepage.
- I would like my users to be able to watch advertisements and then download the book for a very small fee or preferably free. In the meantime I can provide a link to another site for my users to buy. 
++ View all symbols by clicking on a country name.
 
++ Adding a country flag image in countries page.
+
++ Saving images on database instead of having them by url, for images on url might be removed which would cause symbol image to disapear.
 
 ## Technologies used
 
@@ -127,22 +128,19 @@ so you are able to add and save your own books.
 
 * [MongoDB](https://www.mongodb.com/)
 
-* [Materialize](https://materializecss.com/)
+* [Materialize](https://getbootstrap.com/)
 * Jquery
-* Flask
-* PyMongo
-* Brycpyt
+* flask
+* flask_pymongo
+* bson.objectid
+* brycpyt
 
 * [Google Fonts](https://fonts.google.com/)
-* [Font Awesome](https://fontawesome.com/)
-* [Autoprefixer](https://autoprefixer.github.io/)
 * [The W3C Markup Validation Service](https://validator.w3.org/)
 * [The W3C Markup Validation Service](https://jigsaw.w3.org/css-validator/)
 
 * [GitPod](https://gitpod.io/workspaces/)
-* [GitHub](https://github.com/sw1ckham)
-
-* Git
+* [GitHub](https://github.com/kydzoster)
 
 ## Testing
 
