@@ -76,7 +76,7 @@ Therefore, site should be easy on eye, with no bright or flashing colours.
 
 All Wireframes were made using [Balsamiq](https://balsamiq.com/)
 
-* [Symbols Desktop (pdf)]()
+* [Symbols Desktop (pdf)](https://github.com/kydzoster/symbols/blob/master/static/wireframe/Symbols.pdf)
 
 * [Symbols Mobile (pdf)]()
 
