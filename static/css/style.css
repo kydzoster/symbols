@@ -5,20 +5,29 @@ body {
     background: #fafafa;
     color: #333333;
     margin-top: 5rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Skranji', cursive;
   }
   
 h1, h2, h3, h4, h5, h6 {
 color: #444444;
-font-family: 'Skranji', cursive;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
 }
 
 .bg-steel {
 background-color: #5f788a;
 }
 
+@media (max-width: 576px){
+    .col-md-8{
+        order: 1;
+    }
+}
+
 .btn {
-  font-family: 'Skranji', cursive;
+font-family: 'Skranji', cursive;
 }
 
 .site-header .navbar-nav .nav-link {

@@ -146,7 +146,7 @@ def logout():
 
 @app.route('/get_search')
 def get_search():
-    query = request.args.get('q')
+    query = request.args.get('search')
     results = mongo.db.symbols.find({"category_name": {"$regex": query, "$options": 'i'}})
     print(query)
     print(results)

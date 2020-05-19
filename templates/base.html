@@ -16,6 +16,14 @@
       crossorigin="anonymous"
     />
 
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+    crossorigin="anonymous">
+
+    
+
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <!--this is a default title if no other title is provided-->
@@ -45,6 +53,7 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
+                <a class="nav-item nav-link"><form action="{{ url_for('get_search') }}"><input type="text" id="search" name="search" placeholder="Search"> <i class="fa fa-search"></i></form></a>
                 {% if 'username' not in session %}
                 <a class="nav-item nav-link" href="{{ url_for('open_login') }}">Login</a>
                 <a class="nav-item nav-link" href="{{ url_for('open_register') }}">Register</a>
@@ -81,7 +90,7 @@
                             <label>Search for a Country</label>
                                 <div id="nav-search" class="col s3 offset-m1 offset-l2 center active">
                                     
-                                    <input type="text" id="q" name="q" placeholder="e.g. Latvia">
+                                    <input type="text" id="search" name="search" placeholder="e.g. Latvia">
                                 </div>
                                     <button class="btn btn-outline-success mt-1" type="submit">Search</button>
                             </form>
@@ -91,6 +100,7 @@
             </div>
         </div>
     </main>
+<!-- Footer -->
 
     <!-- JavaScript -->
     <!-- jQuery-->

@@ -19,9 +19,9 @@
 <!--this is a default title if no other title is provided-->
 <title>Symbols</title>
 </head>
-<body class="view">
-    <main role="main" class="container">
-        <div class="row mask bg-steel align-items-center mt-5">
+<body>
+    <main class="container">
+        <div class="row bg-steel align-items-center mt-5">
         <div class="col-md-12 mt-4">
             <div class="content-section">
                 <h1 class="text-center">Database of Pagan Symbols</h1>
@@ -38,7 +38,7 @@
                     <form action="{{ url_for('get_search') }}">
                     <label for="Search">Search for a Country</label>
                         <div>
-                            <input type="text" id="q" name="q" placeholder="e.g. Latvia">
+                            <input type="text" id="search" name="search" placeholder="e.g. Latvia">
                         </div>
                         <button class="btn btn-outline-success mt-1" type="submit"><i class="material-icons">Search</i></button>
                     </form>
