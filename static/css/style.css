@@ -17,6 +17,10 @@ font-family: 'Skranji', cursive;
 background-color: #5f788a;
 }
 
+.btn {
+  font-family: 'Skranji', cursive;
+}
+
 .site-header .navbar-nav .nav-link {
 color: #cbd5db;
 }
