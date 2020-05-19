@@ -20,12 +20,6 @@ p {
 background-color: #5f788a;
 }
 
-@media (max-width: 576px){
-    .col-md-8{
-        order: 1;
-    }
-}
-
 .btn {
 font-family: 'Skranji', cursive;
 }

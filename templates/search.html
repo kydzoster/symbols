@@ -6,10 +6,9 @@
     {% else %}
         {% for que in query %}
             <article class="media content-section">
-            <img class="rounded-circle article-img" src="{{que.symbol_img}}" alt="Symbol Image">
                 <div class="media-body">
                     <div class="article-metadata">
-                        <h2><a class="article-title">{{que.symbol_name}}</a></h2>
+                        <h2><img class="rounded-circle article-img" src="{{que.symbol_img}}" alt="Symbol Image"><a class="article-title">{{que.symbol_name}}</a></h2>
                         <h5><a class="mr-2">{{que.category_name}}</a></h5>
                     </div>
                     <p class="article-content">{{que.symbol_description}}</p>

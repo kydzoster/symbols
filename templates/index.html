@@ -7,6 +7,12 @@
     name="viewport"
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
 />
+<!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+    crossorigin="anonymous">
+
 <!-- Bootstrap CSS -->
 <link
     rel="stylesheet"
@@ -34,15 +40,11 @@
                 <br>
                 <hr>
                 <br>
-                <div class="align-items-center text-center">
-                    <form action="{{ url_for('get_search') }}">
-                    <label for="Search">Search for a Country</label>
-                        <div>
-                            <input type="text" id="search" name="search" placeholder="e.g. Latvia">
-                        </div>
-                        <button class="btn btn-outline-success mt-1" type="submit"><i class="material-icons">Search</i></button>
-                    </form>
-                </div>
+                <!-- Search form -->
+                <form class="d-flex justify-content-center md-form form-sm active-cyan-2 mt-2" action="{{ url_for('get_search') }}">
+                <i class="fa fa-search mr-2" aria-hidden="true"></i>
+                <input class="form-control form-control-sm mr-3 w-75" type="text" id="search" name="search" placeholder="e.g. Latvia" aria-label="Search">
+                </form>
             </div>
         </div>
         </div>
