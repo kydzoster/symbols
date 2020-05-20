@@ -1,10 +1,10 @@
 <div style="text-align: center;">
 
-# Database for Pagan Symbols
+# Pagan Symbol Database
 
-<p>DPS(Database for Pagan Symbols) is a fully responsive, user based, database for pagan symbols.
+<p>Pagan Symbol Database is a fully responsive, user based, database for pagan symbols.
 You can search for any Country and see if database contains any symbols for that country. 
-If that country canot be found, that means that there are no symbols for that country, then you have an option to add one.
+If that country canot be found, that means that there are no symbols for that country inside our Database, then you have an option to add one.
 To add, edit or delete symbols, you have to be logged in.</p>
 
 </div>
@@ -42,7 +42,7 @@ To allow the user to read and add a Pagan Symbols not only for his/her country, 
 
 ### User Goals
 
-I want to have a place online where I or anyone else could store Pagan Symbols and learn about other countries Pagan symbols. 
+I want to have a place for everyone to store Pagan Symbols and learn about other countries Pagan symbols. 
 
 ### User Stories
 
@@ -60,13 +60,13 @@ I have decided to go for a simple Bootstrap design. The demographic of my users 
 Therefore, site should be easy on eye, with no bright or flashing colours.
 
 1. Font
-* The font I chose was 'Skranji' due to it's 'Pagan looks' for Headings and Roboto for other text. 
+* The font I chose was 'Skranji' due to it's 'Pagan looks' for Headings and Roboto for description. 
 
 2. Colours
 * I chose SteelBlue as my main colour because it is known as a very calm colour.
-* I chose #fafafa background for its simplicity and dark headings
-* I chose blue delete button and greedn edit button
-* I chose green flash messages for success and red for errors
+* I chose white background for its simplicity and dark headings for easy reading.
+* I chose blue delete button and greedn edit button.
+* I chose green flash messages for success and red for errors.
 
 3. Styling
 * Bootstrap.
@@ -77,8 +77,6 @@ Therefore, site should be easy on eye, with no bright or flashing colours.
 All Wireframes were made using [Balsamiq](https://balsamiq.com/)
 
 * [Symbols Desktop (pdf)](https://github.com/kydzoster/symbols/blob/master/static/wireframe/Symbols.pdf)
-
-* [Symbols Mobile (pdf)]()
 
 
 ## Features
@@ -97,7 +95,7 @@ logged in. It also collapses on mobile screens.
  The New symbol allows to insert Country name, Symbol name, Symbol Image and Symbol Description, all fields are mandatory. 
 
 + Footer.
- The Footer includes copyright information in regards to the site and social links taking you to the developers GitHub and LinkedIn pages.
+ I dont have a standard footer at the bottom, instead I have a Content Author div at the right side of the screen for mobile and tablets and when viewed from mobiles at the bottom of the page. Content Author section includes social links taking you to the developers GitHub and LinkedIn pages and copyright information with my name.
 
 
 ## Features left to Implement
@@ -122,10 +120,15 @@ logged in. It also collapses on mobile screens.
 * [MongoDB](https://www.mongodb.com/)
 
 * [Bootstrap](https://getbootstrap.com/)
+
 * Jquery
+
 * flask
+
 * flask_pymongo
+
 * bson.objectid
+
 * brycpyt
 
 * [Google Fonts](https://fonts.google.com/)
@@ -155,14 +158,18 @@ I began my testing using..
 
 #### Client Stories Testing
 
-1. To be able to register quickly without the site taking any unneccesary information.
+1. To be able to register quickly without the site taking too much information.
 * When signing up to the site I am currently only asking for a 'Username' and 'Password' to be able to edit or create content.
+
 2. To be able to find country containing any symbols.
 * Index page aka Symbols page contains search bar, home page contains all symbols in the database and Countries page contains only countries currently in the database.
+
 3. To be able to navigate around the site with ease.
 * The site's navigation bar is fixed therefore it is very obvious how to navigate from page to page.
-4. To be able to edit or delete enties, only available when logged in.
-* To edit or delete symbol can be done only from Home page.
+
+4. To be able to edit or delete entries, only available when logged in.
+* To edit or delete symbol can be done only from Home page, other pages are read only.
+
 5. To be able to add content when discovered that country does not exist, this will offer to add it if you are logged-in and transfer you to add symbol page, otherwise it will offer to log in if not logged in.
  
 #### Manual Testing
