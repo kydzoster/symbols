@@ -14,17 +14,17 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("index.html",)
+    return render_template("index.html", title='Symbols')
 
 
 @app.route('/symbols')
 def symbols():
-    return render_template("symbols.html", symbols = mongo.db.symbols.find().sort('symbol_name'))
+    return render_template("symbols.html", symbols = mongo.db.symbols.find().sort('symbol_name'), title='Home')
 
 
 @app.route('/add_symbol')
 def add_symbol():
-    return render_template('add_symbol.html')
+    return render_template('add_symbol.html', title='Add Symbol')
 
 
 @app.route('/insert_symbol', methods=['GET', 'POST'])
@@ -51,7 +51,7 @@ def insert_symbol():
 @app.route('/edit_symbol/<symbol_id>')
 def edit_symbol(symbol_id):
     the_symbol = mongo.db.symbols.find_one({'_id': ObjectId(symbol_id)})
-    return render_template('edit_symbol.html', symbol=the_symbol)
+    return render_template('edit_symbol.html', symbol=the_symbol, title='Edit Symbol')
 
 
 @app.route('/update_symbol/<symbol_id>', methods=["POST"])
@@ -76,29 +76,7 @@ def delete_symbol(symbol_id):
 
 @app.route('/categories')
 def categories():
-    return render_template('categories.html', categories=mongo.db.symbols.distinct("category_name"))
-
-
-@app.route('/category_list/<category_id>')
-def category_list(category_id):
-    return render_template('category_list.html', category=mongo.db.symbols.find_one({'_id': ObjectId(category_id)}))
-
-
-@app.route('/popu_category/<category_id>', methods=["POST"])
-def popu_category(category_id):
-    category = mongo.db.symbols
-    category.find({'_id': ObjectId(category_id)},
-    {
-        'category_name':request.form.get('category_name'),
-        'symbol_name':request.form.get('symbol_name'),
-        'symbol_img': request.form.get('symbol_img'),
-        'symbol_description': request.form.get('symbol_description')
-    })
-
-
-@app.route('/register')
-def open_register():
-    return render_template('register.html', title='Register')
+    return render_template('categories.html', categories=mongo.db.symbols.distinct("category_name"), title='Countries')
 
 
 @app.route('/register', methods=["POST", "GET"])
@@ -116,12 +94,7 @@ def register():
             return redirect(url_for('login'))
         else:
             flash('This username is already taken! Please try a different username!', 'danger')
-        return render_template('register.html')
-
-
-@app.route('/login')
-def open_login():
-    return render_template('login.html', title='Login')
+        return render_template('register.html', title='Register')
 
 
 @app.route('/login', methods=["POST", "GET"])
