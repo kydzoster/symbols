@@ -7,7 +7,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -15,21 +14,16 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-
     <!-- Font Awesome -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
     rel="stylesheet" 
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
     crossorigin="anonymous">
-
-    
-
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <!--this is a default title if no other title is provided-->
     <title>Symbols</title>
   </head>
-
   <body>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
@@ -66,9 +60,10 @@
         </div>
       </nav>
     </header>
+    <!-- Main Content -->
     <main class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
                         {% for category, message in messages %}
@@ -81,10 +76,27 @@
                 {% block content %}
                 {% endblock %}
             </div>
+            <div class="col-md-4">
+                <div class="content-section">
+                    <h3 class="text-center">Content Author</h3>
+                    <ul class="list-group align-items-center text-center">
+                        <li class="list-group-item list-group-item-light mt-1">
+                            <h6>You can find me on:</h6>
+                            <div class="col-sm-12 text-center text-inline">
+                                <a href="https://linkedin.com/in/martins-silins-3bb0ba126" class="linkedIn" target="_blank"
+                                    rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://github.com/kydzoster" class="gitHub" target="_blank" rel="noopener noreferrer"
+                                    aria-label="GitHub"><i class="fa fa-github"></i></a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <span>&copy; 2020 Martins Silins </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
-<!-- Footer -->
-
     <!-- JavaScript -->
     <!-- jQuery-->
     <script

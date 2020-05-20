@@ -2,18 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap");
 
 body {
-    background: #fafafa;
-    color: #333333;
-    margin-top: 5rem;
-    font-family: 'Skranji', cursive;
-  }
-  
+background: #fafafa;
+color: #161616;
+margin-top: 5rem;
+font-family: 'Skranji', cursive;
+scroll-behavior: smooth;
+}
+
 h1, h2, h3, h4, h5, h6 {
 color: #444444;
 }
 
 p {
-    font-family: 'Roboto', sans-serif;
+font-family: 'Roboto', sans-serif;
 }
 
 .bg-steel {
@@ -32,10 +33,6 @@ color: #cbd5db;
 color: #ffffff;
 }
 
-.site-header .navbar-nav .nav-link.active {
-font-weight: 500;
-}
-
 .content-section {
 background: #ffffff;
 padding: 10px 20px;
@@ -46,11 +43,6 @@ margin-bottom: 20px;
 
 .article-title {
 color: #444444;
-}
-
-a.article-title:hover {
-color: #428bca;
-text-decoration: none;
 }
 
 .article-content {
@@ -67,9 +59,4 @@ margin-right: 16px;
 padding-bottom: 1px;
 margin-bottom: 4px;
 border-bottom: 1px solid #e3e3e3
-}
-
-.article-metadata a:hover {
-color: #333;
-text-decoration: none;
 }

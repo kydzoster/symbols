@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700");
 @import url("https://fonts.googleapis.com/css2?family=Skranji:wght@400;700&display=swap");
 
-body,
-html {
-    background: #fafafa;
-    color: #333333;
-    font-family: 'Roboto', sans-serif;
+body {
+background: #fafafa;
+color: #161616;
+margin-top: 5rem;
+font-family: 'Skranji', cursive;
+scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,10 +23,10 @@ margin-bottom: 20px;
 }
 
 .btn {
-  margin-left: 3px;
-  font-family: 'Skranji', cursive;
+margin-left: 3px;
+font-family: 'Skranji', cursive;
 }
 
 .bg-steel {
-    background-color: #5f788a;
+background-color: #5f788a;
 }
