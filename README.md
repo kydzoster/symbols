@@ -1,6 +1,6 @@
 <div style="text-align: center;">
 
-# Pagan Symbol Database
+#  [Pagan Symbol Database](https://simbols.herokuapp.com/)
 
 <p>Pagan Symbol Database is a fully responsive, user based, database for pagan symbols.
 You can search for any Country and see if database contains any symbols for that country. 
@@ -9,6 +9,11 @@ To add, edit or delete symbols, you have to be logged in.</p>
 
 </div>
 
+A live website can be found [here](https://simbols.herokuapp.com/)
+
+![Index page](/static/wireframe/index.jpg)
+
+![Other pages](/static/wireframe/home.jpg)
 
 ## Tabel of Contents
 
