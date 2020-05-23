@@ -80,7 +80,8 @@ def categories():
 
 
 @app.route('/register')
-def open_register():
+def register_page():
+    # Generates Register Page
     return render_template('register.html', title='Register')
 
 
@@ -89,8 +90,11 @@ def register():
     if request.method == "POST":
         users = mongo.db.users
         existing_user = users.find_one({'username': request.form['username']})
+        # checks if user is in db if not creates new user, if it is starts else
         if existing_user is None:
+            # hashes pasword
             hash_password = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            #creates new user with hashed pasword
             users.insert({
                 'username': request.form['username'],
                 'password': hash_password
@@ -103,7 +107,8 @@ def register():
 
 
 @app.route('/login')
-def open_login():
+def login_page():
+    # Generates Login Page
     return render_template('login.html', title='Login')
 
 
@@ -111,7 +116,9 @@ def open_login():
 def login():
     users = mongo.db.users
     login_user = users.find_one({'username': request.form['username']})
+    # Check for user in db
     if login_user and bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+            # logs user in session
             session['username'] = request.form['username']
             flash('You have been logged in!', 'success')
             return redirect(url_for('symbols'))
@@ -124,7 +131,7 @@ def login():
 def logout():
     session.clear()
     flash('You have been successfully logged out!', 'success')
-    return redirect(url_for('symbols'))
+    return redirect(url_for('index'))
 
 
 @app.route('/get_search')

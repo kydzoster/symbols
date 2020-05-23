@@ -4,7 +4,7 @@
     <div class="content-section">
         <form method="POST">
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
+                <legend class="border-bottom mb-4">Register</legend>
                 <div class="form-group">
                     <label for="username" class="form-control-label">Username</label>
                     <input id="username" class="form-control form-control-lg" type="text" name="username" required />
@@ -22,7 +22,7 @@
     </div>
     <div class="border-top pt-3 mb-3">
         <small class="text-muted">
-            Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In Here!</a>
+            Already Have An Account? <a class="ml-2" href="{{ url_for('login_page') }}">Sign In Here!</a>
         </small>
     </div>
 {% endblock content %}

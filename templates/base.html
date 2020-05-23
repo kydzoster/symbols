@@ -46,8 +46,8 @@
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
                 {% if 'username' not in session %}
-                <a class="nav-item nav-link" href="{{ url_for('open_login') }}" aria-label="login">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('open_register') }}" aria-label="register">Register</a>
+                <a class="nav-item nav-link" href="{{ url_for('login_page') }}" aria-label="login">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('register_page') }}" aria-label="register">Register</a>
                 {% else %}
                 <a class="nav-item nav-link" href="{{ url_for('add_symbol') }}" aria-label="new symbol">New Symbol</a>
                 <a class="nav-item nav-link" href="{{ url_for('logout') }}" aria-label="logout">Logout</a>
