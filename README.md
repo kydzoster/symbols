@@ -130,6 +130,7 @@ A brief overview of the languages, frameworks, and other tools I've used on this
 
 #### ISSUES
 
+- During development time, Gitpod did not recognised flask or pymongo. To resolve that problem I had to use same project as a development and as a testing field with multiple codes from diferent angles with their respective libraries, eg. Alchemy.
 - No errors for style.css and index.css
 - There are 8 errors in base.html related to (Illegal character in path segment: { is not allowed).
 - All other html documents have errors related to (Illegal character in path segment: { is not allowed).
