@@ -1,240 +1,215 @@
-<div style="text-align: center;">
-
-#  [Pagan Symbol Database](https://simbols.herokuapp.com/)
-
-<p>Pagan Symbol Database is a fully responsive, user based, database for pagan symbols.
-You can search for any Country and see if database contains any symbols for that country. 
-If that country canot be found, that means that there are no symbols for that country inside our Database, then you have an option to add one.
-To add, edit or delete symbols, you have to be logged in.</p>
-
-</div>
-
-A live website can be found [here](https://simbols.herokuapp.com/)
-
 ![Index page](/static/wireframe/index.jpg)
 
 ![Other pages](/static/wireframe/home.jpg)
 
-## Tabel of Contents
+#### **[Live Site](https://simbols.herokuapp.com/)**
 
-[**Project Goals**](#project-goals)
+# Pagan Symbol Database
 
-[**User Goals**](#user-goals)
+Pagan Symbol Database is a fully responsive, user based, database for pagan symbols.
 
-[**User Stories**](#user-stories)
+You can search for any Country and see if database contains any symbols for that country. 
 
-[**Design Choices**](#design-choices)
+If that country canot be found, that means that there are no symbols for that country inside our Database, then you have an option to add one.
 
-[**Wireframes**](#wireframes)
+To add, edit or delete symbols, you have to be logged in.
 
-[**Features**](#features)
+---
 
-[**Technologies used**](#technologies-used)
+## Table of Contents
+1. [**UX**](#ux)
+    - [**Project Goals**](#project-goals)
+    - [**User Stories**](#user-stories)
+    - [**Framework**](#framework)
+    - [**Color Scheme**](#color-scheme)
+    - [**Mockups**](#Mockups)
 
-[**Testing**](#testing)
+2. [**Features**](#features)
+    - [**Features to be Implemented**](#Features-to-be-Implemented)
 
-[**Deployment**](#deployment)
+3. [**Technologies Used**](#technologies-used)
 
-[**Credits**](#credits)
+4. [**Testing**](#testing)
+    - [**Test Matrix**](#test-matrix)
+    - [**Validators**](#validators)
+    - [**Issues**](#issues)
+    - [**Manual Testing**](#manual-testing)
 
+5. [**Deployment**](#deployment)
+    - [**Repo**](#repo)
+    - [**Heroku**](#heroku)
+
+6. [**Credits**](#credits)
+    - [**Content**](#content)
+    - [**Media**](#media)
+    - [**Acknowledgements**](#acknowledgements)
 
 ## UX
 
-### Project Goals
+#### PROJECT GOALS
 
 To create a site that contains all Pagan symbols in one database.
 To allow the user to read and add a Pagan Symbols not only for his/her country, but also for other countries.
 
-### User Goals
+#### USER STORIES
 
-I want to have a place for everyone to store Pagan Symbols and learn about other countries Pagan symbols. 
+As a user I want to be able to:
 
-### User Stories
+- find country and it's Pagan Symbols.
+- see the list of countries currently in database.
+- navigate around the site with ease.
+- register quickly without the site taking any unnecessary information.
+- read, add, edit or delete any symbols in database.
 
-As a user I want...
+#### FRAMEWORK
 
-* To be able to register quickly without the site taking any unnecessary information.
-* To be able to find country and it's Pagan Symbols.
-* To be able to see the list of countries currently in database.
-* To be able to navigate around the site with ease.
-* To be able to read, add, edit or delete any symbols in database.
+- **Bootstrap**: I prefer to use Bootstrap as it is easy and have consistency. It is complemented with custom css.
 
-### Design Choices
+#### COLOR SCHEME
 
-I have decided to go for a simple Bootstrap design. The demographic of my users are anyone interested in Pagan Symbols.
-Therefore, site should be easy on eye, with no bright or flashing colours.
+- SteelBlue(5f788a) as my main colour for navbar.
+- fafafa for background.
+- 444444 for headings.
+- 161616 for body text.
+* Boostrap colours:
+    - Blue as info for Delete button.
+    - Green as success for Edit, Search and success messages.
+    - Red as danger for error messages
 
-1. Font
-* The font I chose was 'Skranji' due to it's 'Pagan looks' for Headings and Roboto for description. 
-
-2. Colours
-* I chose SteelBlue as my main colour because it is known as a very calm colour.
-* I chose white background for its simplicity and dark headings for easy reading.
-* I chose blue delete button and greedn edit button.
-* I chose green flash messages for success and red for errors.
-
-3. Styling
-* Bootstrap.
-
-
-## Wireframes 
-
+#### MOCKUPS
 All Wireframes were made using [Balsamiq](https://balsamiq.com/)
+![PC](https://github.com/kydzoster/symbols/blob/master/static/wireframe/Symbols.pdf)
 
-* [Symbols Desktop (pdf)](https://github.com/kydzoster/symbols/blob/master/static/wireframe/Symbols.pdf)
+## FEATURES
 
-
-## Features
-
-+ Nav Bar
+**Nav Bar**
  The Nav Bar is fixed at all times, includes a logo and links to 'Symbols'-aka index, 'Home', 'Countries', 'Log In' and 'Register' when not logged in, and 'Symbols', 'Home', 'Countries', 'New Symbol' and 'Log Out' when
 logged in. It also collapses on mobile screens. 
 
-+ Log In / Register options.
+**Log In / Register options**
  There are Log in and Registration options in both the collapsable nav bar and standard nav bar.
 
-+ Countries.
+**Countries**
  The Countries page allows a user to see what countries currently are in the database to avoid useless search for countless of countries with symbols. 
 
-+ New Symbol.
+**New Symbol**
  The New symbol allows to insert Country name, Symbol name, Symbol Image and Symbol Description, all fields are mandatory. 
 
-+ Footer.
+**Footer**
  I dont have a standard footer at the bottom, instead I have a Content Author div at the right side of the screen for mobile and tablets and when viewed from mobiles at the bottom of the page. Content Author section includes social links taking you to the developers GitHub and LinkedIn pages and copyright information with my name.
 
+**Features to be Implemented**
 
-## Features left to Implement
+- Edit and Delete only your content.
 
-+ Edit and Delete only your content.
+- Alphabetical search when there are hundreds of countries, currently it is not feasable for a few countries.
 
-+ Alphabetical search when there are hundreds of countries, currently it is not feasable for a few countries.
+- View all symbols by clicking on a country name.
 
-+ View all symbols by clicking on a country name.
+- Adding a country flag image in countries page.
 
-+ Adding a country flag image in countries page.
+- Saving images on database instead of having them by url, for images on url might be removed which would cause symbol image to disapear.
 
-+ Saving images on database instead of having them by url, for images on url might be removed which would cause symbol image to disapear.
+## TECHNOLOGIES USED
 
+A brief overview of the languages, frameworks, and other tools I've used on this project:
 
-## Technologies used
+- [Gitpod]
+- [CSS3]
+- [Bootstrap]
+- [Flask]
+- [MongoDB]
 
-* HTML5
-* CSS3
-* Python
+## TESTING
 
-* [MongoDB](https://www.mongodb.com/)
+#### TEST MATRIX
 
-* [Bootstrap](https://getbootstrap.com/)
+I borrowed [testing matrix](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/testing/testing-ci-milestone02-ifd.xlsx) from https://github.com/TravelTimN
 
-* Jquery
+![Testing Matrix](https://github.com/kydzoster/Olympia-Gym/blob/master/assets/images/Testing.jpg)
 
-* flask
+#### VALIDATORS
 
-* flask_pymongo
+- [HTML Validation](https://validator.w3.org/)
+- [CSS Validation](https://jigsaw.w3.org/css-validator/)
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
 
-* bson.objectid
+#### ISSUES
 
-* brycpyt
-
-* [Google Fonts](https://fonts.google.com/)
-* [The W3C Markup Validation Service](https://validator.w3.org/)
-* [The W3C Markup Validation Service](https://jigsaw.w3.org/css-validator/)
-
-* [GitPod](https://gitpod.io/workspaces/)
-* [GitHub](https://github.com/kydzoster)
-
-
-## Testing
-
-I began my testing using.. 
-
-- [HTML WC3 Markup Validation Service.](https://validator.w3.org/)
-- [CSS WC3 Markup Validation Service](https://jigsaw.w3.org/css-validator/)
-
-#### CSS Validation bugs:
-
-- No errors for style.css
-
-#### HTML Validation bugs:
-
+- No errors for style.css and index.css
 - There are 8 errors in base.html related to (Illegal character in path segment: { is not allowed).
 - All other html documents have errors related to (Illegal character in path segment: { is not allowed).
-- All other html documents have errors related to missing (lang and head elements)
+- All other html documents have errors related to missing (lang and head elements)Using as per advisement prettier beautifier, however, this beautifier uses a lot of spacing and some may think I have overdone it myself, this is not a case.
 
-#### Client Stories Testing
-
-1. To be able to register quickly without the site taking too much information.
-* When signing up to the site I am currently only asking for a 'Username' and 'Password' to be able to edit or create content.
-
-2. To be able to find country containing any symbols.
-* Index page aka Symbols page contains search bar, home page contains all symbols in the database and Countries page contains only countries currently in the database.
-
-3. To be able to navigate around the site with ease.
-* The site's navigation bar is fixed therefore it is very obvious how to navigate from page to page.
-
-4. To be able to edit or delete entries, only available when logged in.
-* To edit or delete symbol can be done only from Home page, other pages are read only.
-
-5. To be able to add content when discovered that country does not exist, this will offer to add it if you are logged-in and transfer you to add symbol page, otherwise it will offer to log in if not logged in.
- 
 #### Manual Testing
 
 Manual testing completed by the developer on Desktop, Sony Xperia and Ipad Pro.
 
-1. Navbar/navigation
-* When not logged in, the navbar shows - 'Symbols', 'Home', 'Countries', 'Login', 'Register'.
-* Once registered or logged in, the navbar shows - 'Symbols', 'Home', 'Countries', 'New Symbol', 'Logout'.
-* When viewing the site on mobile devices, the navbar becomes a dropdown from a toggle button in the top right hand corner. 
-* At all times the Navbar is fixed to the top of the screen so you can see it at all times. 
+1. **Navbar/navigation**
+    - When not logged in, the navbar shows - 'Symbols', 'Home', 'Countries', 'Login', 'Register'.
+    - Once registered or logged in, the navbar shows - 'Symbols', 'Home', 'Countries', 'New Symbol', 'Logout'.
+    - When viewing the site on mobile devices, the navbar becomes a dropdown from a toggle button in the top right hand corner. 
+    - At all times the Navbar is fixed to the top of the screen so you can see it at all times. 
 
-2. Footer
-* There are a GitHub and LinkedIn icon, when you click on the icons it opens a seperate browser taking you to the developers profiles. 
-* Above the footer is an up arrow, once clicked it takes you back to the top of the homepage. 
+2. **Footer**
+    - There are a GitHub and LinkedIn icon, when you click on the icons it opens a seperate browser taking you to the developers profiles. 
 
-3. Log In
-* Try to Log In leaving one or/and both input fields empty - you will get an error message saying 'Please fill in this field'
-* Try to Log In with credentials having not registered yet - a flash message appears saying 'Login Unsuccessful. Please check your credentials'.
-* Click on the link underneath the form 'Sign up Now', you are taken to the registration page to sign up. 
-* Having already registered, try to log in with either the username inccorect - a flash message appears saying 'Login Unsuccessful. Please check your credentials'.
-* Log in with your correct credentials - you are taken to the homepage and a flash message appaers saying 'You have been logged in!'.
+3. **Log In**
+    - Try to Log In leaving one or/and both input fields empty - you will get an error message saying 'Please fill in this field'
+    - Try to Log In with credentials having not registered yet - a flash message appears saying 'Login Unsuccessful. Please check your credentials'.
+    - Click on the link underneath the form 'Sign up Now', you are taken to the registration page to sign up. 
+    - Having already registered, try to log in with either the username inccorect - a flash message appears saying 'Login Unsuccessful. Please check your credentials'.
+    - Log in with your correct credentials - you are taken to the homepage and a flash message appaers saying 'You have been logged in!'.
 
-4. Register
-* Try to Register leaving one or/and both input fields empty - you will get an error message saying 'Please fill in this field'
-* Try to register with a existing user log in credentials - you will get a flash message saying 'This username is already taken! Please try a different username!'. 
-* Register as a new user with unique information, you will be directed to login page and a flash message will appear saying 'Your account has been created successfuly! You can now Login!'.
+4. **Register**
+    - Try to Register leaving one or/and both input fields empty - you will get an error message saying 'Please fill in this field'
+    - Try to register with a existing user log in credentials - you will get a flash message saying 'This username is already taken! Please try a different username!'. 
+    - Register as a new user with unique information, you will be directed to login page and a flash message will appear saying 'Your account has been created successfuly! You can now Login!'.
 
-5. Home
-* When in 'Home' page and you are logged in you can delete or edit content.
-* You click on 'Edit' and it takes you to an 'Edit Book' form, all of the original information autofilled.
-* You are able to change one or all fields. 
-* Try to Edit a book but leave one or/and more input fields empty - you will get an error message saying 'Please fill out this form'.
-* Once edited, click edit book, it takes you to your 'My Books' view with the new version of the book replacing the old. 
-* In 'My Books' click on 'Delete', the book disappears in 'My books' and also on the homepage. 
+5. **Home**
+    - When in 'Home' page and you are logged in you can delete or edit content.
+    - You click on 'Edit' and it takes you to an 'Edit Book' form, all of the original information autofilled.
+    - You are able to change one or all fields. 
+    - Try to Edit a book but leave one or/and more input fields empty - you will get an error message saying 'Please fill out this form'.
+    - Once edited, click edit book, it takes you to your 'My Books' view with the new version of the book replacing the old. 
+    - In 'My Books' click on 'Delete', the book disappears in 'My books' and also on the homepage. 
 
-6. New Symbol
-* When you click on 'New Symbol' in the navbar, it takes you to a new form where all fields are required to be filled.
-* Try and submit the form with one of the input fields missing - you will get an error saying 'Please fill out this form'. Do this for every input field. You will get an error
-for every input field except, 'Rating' (as it's default is 5), Comments and 'Share' (as it's default is off).
-* Fill out the form correctly and add, you will be directed to 'Home' page and flash message will appear saying {symbol_name} has been successfuly added to {country_name}.
-
-
-## Deployment
-
-#### I developed this project using the GitPod, committing to Git and pushing to GitHub via the locally installed Git commands. 
+6. **New Symbol**
+    - When you click on 'New Symbol' in the navbar, it takes you to a new form where all fields are required to be filled.
+    - Try and submit the form with one of the input fields missing - you will get an error saying 'Please fill out this form'. Do this for every input field. You will get an error
+    for every input field except, 'Rating' (as it's default is 5), Comments and 'Share' (as it's default is off).
+    - Fill out the form correctly and add, you will be directed to 'Home' page and flash message will appear saying {symbol_name} has been successfuly added to {country_name}.
 
 
-## Credits
+## DEPLOYMENT
 
-### Content
+Deployment and source control was entirely done via GitPod and stored on herokuapp and Github.
+My repository can be found here:
 
-All content written in this project was written by the developer.
+#### REPO: [https://github.com/kydzoster/symbols](https://github.com/kydzoster/symbols)**
 
-### Media
+The live site can be found here:
+
+#### HEROKU: [https://simbols.herokuapp.com/](https://simbols.herokuapp.com/)**
+
+## CREDITS
+
+#### CONTENT
+
+Content in this project was written by developer.
+#### MEDIA
 
 - Symbol images are URL from web.
 
-### Acknowledgements
+#### ACKNOWLEDGEMENTS
 
-Big thanks to Slack users, especially to 'Igor' for helping with symbol insert code.
-Huge help received from discord communities, without their help I would have not been able to improve my coding and understanding of flask.
-Thank you youtube for countles examples of user authentication and searchbar.
+- Big thanks to Slack user 'Igor' for helping with symbol insert code and other codes.
+
+- Huge help received from discord communities, without their help I would have not been able to improve my coding and understanding of flask.
+
+- Thank you youtube for countles examples of user authentication and searchbar.
+
+    **Specific Sources**
+    - User login/register system (https://www.youtube.com/watch?v=vVx1737auSE&t=903s)
+
+    - Data centric module from Code Institute
