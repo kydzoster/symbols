@@ -77,7 +77,7 @@ As a user I want to be able to:
 
 #### MOCKUPS
 All Wireframes were made using [Balsamiq](https://balsamiq.com/)
-
+Link is not broken, its in pdf format and has rendering problems, but when clicked on it will open it.
 - ![PC](/static/wireframe/Symbols.pdf)
 
 ## FEATURES
