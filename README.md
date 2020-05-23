@@ -30,7 +30,6 @@ To add, edit or delete symbols, you have to be logged in.
 3. [**Technologies Used**](#technologies-used)
 
 4. [**Testing**](#testing)
-    - [**Test Matrix**](#test-matrix)
     - [**Validators**](#validators)
     - [**Issues**](#issues)
     - [**Manual Testing**](#manual-testing)
@@ -78,7 +77,8 @@ As a user I want to be able to:
 
 #### MOCKUPS
 All Wireframes were made using [Balsamiq](https://balsamiq.com/)
-![PC](https://github.com/kydzoster/symbols/blob/master/static/wireframe/Symbols.pdf)
+
+- ![PC](/static/wireframe/Symbols.pdf)
 
 ## FEATURES
 
@@ -121,12 +121,6 @@ A brief overview of the languages, frameworks, and other tools I've used on this
 - [MongoDB]
 
 ## TESTING
-
-#### TEST MATRIX
-
-I borrowed [testing matrix](https://github.com/TravelTimN/ci-milestone02-ifd/blob/master/testing/testing-ci-milestone02-ifd.xlsx) from https://github.com/TravelTimN
-
-![Testing Matrix](https://github.com/kydzoster/Olympia-Gym/blob/master/assets/images/Testing.jpg)
 
 #### VALIDATORS
 
