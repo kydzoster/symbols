@@ -83,7 +83,7 @@ Link is not broken, its in pdf format and has rendering problems, but when click
 ## FEATURES
 
 **Nav Bar**
- The Nav Bar is fixed at all times, includes a logo and links to 'Symbols'-aka index, 'Home', 'Countries', 'Log In' and 'Register' when not logged in, and 'Symbols', 'Home', 'Countries', 'New Symbol' and 'Log Out' when
+ The Nav Bar is fixed at all times, includes a brand name 'Symbols'-aka index, 'Home', 'Countries', 'Log In' and 'Register' when not logged in, and 'Symbols', 'Home', 'Countries', 'New Symbol' and 'Log Out' when
 logged in. It also collapses on mobile screens. 
 
 **Log In / Register options**
@@ -96,7 +96,7 @@ logged in. It also collapses on mobile screens.
  The New symbol allows to insert Country name, Symbol name, Symbol Image and Symbol Description, all fields are mandatory. 
 
 **Footer**
- I dont have a standard footer at the bottom, instead I have a Content Author div at the right side of the screen for mobile and tablets and when viewed from mobiles at the bottom of the page. Content Author section includes social links taking you to the developers GitHub and LinkedIn pages and copyright information with my name.
+ I dont have a standard footer at the bottom, instead I have a Content Author div at the right side of the screen for mobile and tablets and when viewed from mobiles at the bottom of the page. Content Author section includes social links taking you to the developers GitHub and LinkedIn pages and copyright information with developers name.
 
 **Features to be Implemented**
 
@@ -104,7 +104,7 @@ logged in. It also collapses on mobile screens.
 
 - Alphabetical search when there are hundreds of countries, currently it is not feasable for a few countries.
 
-- View all symbols by clicking on a country name.
+- View all symbols under that country when clicked on its name.
 
 - Adding a country flag image in countries page.
 
@@ -134,7 +134,7 @@ A brief overview of the languages, frameworks, and other tools I've used on this
 - No errors for style.css and index.css
 - There are 8 errors in base.html related to (Illegal character in path segment: { is not allowed).
 - All other html documents have errors related to (Illegal character in path segment: { is not allowed).
-- All other html documents have errors related to missing (lang and head elements)Using as per advisement prettier beautifier, however, this beautifier uses a lot of spacing and some may think I have overdone it myself, this is not a case.
+- All other html documents have errors related to missing (lang and head elements).
 
 #### Manual Testing
 
@@ -142,38 +142,36 @@ Manual testing completed by the developer on Desktop, Sony Xperia and Ipad Pro.
 
 1. **Navbar/navigation**
     - When not logged in, the navbar shows - 'Symbols', 'Home', 'Countries', 'Login', 'Register'.
-    - Once registered or logged in, the navbar shows - 'Symbols', 'Home', 'Countries', 'New Symbol', 'Logout'.
+    - Once registered or logged in, the navbar shows - 'Symbols', 'Home', 'Countries', 'New Symbol', 'Logout', searchbar.
     - When viewing the site on mobile devices, the navbar becomes a dropdown from a toggle button in the top right hand corner. 
     - At all times the Navbar is fixed to the top of the screen so you can see it at all times. 
 
-2. **Footer**
+2. **Content Author**
     - There are a GitHub and LinkedIn icon, when you click on the icons it opens a seperate browser taking you to the developers profiles. 
 
 3. **Log In**
-    - Try to Log In leaving one or/and both input fields empty - you will get an error message saying 'Please fill in this field'
-    - Try to Log In with credentials having not registered yet - a flash message appears saying 'Login Unsuccessful. Please check your credentials'.
-    - Click on the link underneath the form 'Sign up Now', you are taken to the registration page to sign up. 
-    - Having already registered, try to log in with either the username inccorect - a flash message appears saying 'Login Unsuccessful. Please check your credentials'.
-    - Log in with your correct credentials - you are taken to the homepage and a flash message appaers saying 'You have been logged in!'.
+    - Try to Log In leaving one or/and both input fields empty - you will get an error message saying *'Please fill in this field'*
+    - Try to Log In with credentials having not registered yet - a flash message appears saying *'Login Unsuccessful. Please check your credentials'*.
+    - Click on the link underneath the form *'Sign up Now'*, you are taken to the registration page to sign up. 
+    - Having already registered, try to log in with either the username inccorect - a flash message appears saying *'Login Unsuccessful. Please check your credentials'*.
+    - Log in with your correct credentials - you are taken to the homepage and a flash message appaers saying *'You have been logged in!'*.
 
 4. **Register**
-    - Try to Register leaving one or/and both input fields empty - you will get an error message saying 'Please fill in this field'
-    - Try to register with a existing user log in credentials - you will get a flash message saying 'This username is already taken! Please try a different username!'. 
-    - Register as a new user with unique information, you will be directed to login page and a flash message will appear saying 'Your account has been created successfuly! You can now Login!'.
+    - Try to Register leaving one or/and both input fields empty - you will get an error message saying *'Please fill in this field'*
+    - Try to register with an existing user log in credentials - you will get a flash message saying *'This username is already taken! Please try a different username!'*. 
+    - Register as a new user with unique username, you will be directed to login page and a flash message will appear saying *'Your account has been created successfuly! You can now Login!'*.
 
 5. **Home**
     - When in 'Home' page and you are logged in you can delete or edit content.
-    - You click on 'Edit' and it takes you to an 'Edit Book' form, all of the original information autofilled.
-    - You are able to change one or all fields. 
-    - Try to Edit a book but leave one or/and more input fields empty - you will get an error message saying 'Please fill out this form'.
-    - Once edited, click edit book, it takes you to your 'My Books' view with the new version of the book replacing the old. 
-    - In 'My Books' click on 'Delete', the book disappears in 'My books' and also on the homepage. 
+    - You click on 'Edit' and it takes you to an 'Edit Symbol' form, all of the original information autofilled except image url.
+    - Try to Edit a Symbol but leave one or/and more input fields empty - you will get an error message saying *'Please fill in this field'*.
+    - Once edited, click *update*, it takes you to your 'Home' page with the new version of the Symbol replacing the old. 
+    - In 'Home' click on 'Delete', the Symbol disappears from 'Home' page. 
 
 6. **New Symbol**
     - When you click on 'New Symbol' in the navbar, it takes you to a new form where all fields are required to be filled.
-    - Try and submit the form with one of the input fields missing - you will get an error saying 'Please fill out this form'. Do this for every input field. You will get an error
-    for every input field except, 'Rating' (as it's default is 5), Comments and 'Share' (as it's default is off).
-    - Fill out the form correctly and add, you will be directed to 'Home' page and flash message will appear saying {symbol_name} has been successfuly added to {country_name}.
+    - Try and submit the form with one of the input fields missing - you will get an error saying *'Please fill out this field'*.
+    - Fill out the form and click on 'Add Symbol', you will be directed to 'Home' page and flash message will appear saying {symbol_name} has been successfuly added to {country_name}.
 
 
 ## DEPLOYMENT
