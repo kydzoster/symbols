@@ -68,7 +68,7 @@ def update_symbol(symbol_id):
 @app.route('/delete_symbol/<symbol_id>')
 def delete_symbol(symbol_id):
     mongo.db.symbols.remove({'_id': ObjectId(symbol_id)})
-    flash(('"{}" has been successfully deleted').format(symbol_id), 'success')
+    flash(('Symbol has been successfully deleted').format(symbol_id), 'success')
     return redirect(url_for('symbols'))
 
 
