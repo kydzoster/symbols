@@ -5,9 +5,9 @@ from bson.objectid import ObjectId
 import bcrypt
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'MONGO_DBNAME'
-app.config["MONGO_URI"] = 'MONGO_URI'
-app.config['SECRET_KEY'] = 'SECRET_KEY'
+app.config["MONGO_DBNAME"] = 'MONGO_NAME'
+app.config["MONGO_URI"] = 'MONGO'
+app.config['SECRET_KEY'] = 'SECRET'
 
 mongo = PyMongo(app)
 
