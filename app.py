@@ -34,8 +34,6 @@ def insert_symbol():
     symbol_description = request.form['symbol_description']
     symbol_img = request.form['symbol_img']
     symbols = mongo.db.symbols
-    all_symbols = mongo.db.symbols.find()
-
     symbols.insert_one({
             'category_name': symbol,
             'symbol_name': symbol_name,

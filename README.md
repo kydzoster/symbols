@@ -1,6 +1,4 @@
-![Index page](/static/wireframe/index.jpg)
-
-![Other pages](/static/wireframe/home.jpg)
+![Home page](/static/wireframe/home.jpg)
 
 #### **[Live Site](https://simbols.herokuapp.com/)**
 
@@ -114,11 +112,11 @@ logged in. It also collapses on mobile screens.
 
 A brief overview of the languages, frameworks, and other tools I've used on this project:
 
-- [Gitpod]
-- [CSS3]
-- [Bootstrap]
-- [Flask]
-- [MongoDB]
+- [Gitpod](https://www.gitpod.io/) - Gitpod is an online IDE(Integrated development environment) which can be launched from any GitHub page. Within seconds, Gitpod provides you with a fully working development environment, including a VS Code-powered IDE and a cloud-based Linux container configured specifically for the project at hand.
+- [CSS3](https://www.w3.org/Style/CSS/Overview.en.html) - Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language like HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
+- [Bootstrap](https://getbootstrap.com/) - Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS- and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Flask is a lightweight WSGI(Web Server Gateway Interface) web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications.
+- [MongoDB](https://www.mongodb.com/) - MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era.
 
 ## TESTING
 
@@ -184,6 +182,24 @@ My repository can be found here:
 The live site can be found here:
 
 #### HEROKU: [https://simbols.herokuapp.com/](https://simbols.herokuapp.com/)**
+To replicate follow these steps:
+
+    + Inside Github, right hand side, click on the green button *Gitpod*
+    + wait untill it opens, when code has been uploaded on your Gitpod execute command:    
+        pip3 install -r requirements.txt
+    + Next, go to [Heroku](https://dashboard.heroku.com/apps) and create an account if you dont have one, then:
+
+        - 1. Create a New project on Heroku
+        - 2. ***heroku login*** in Gitpod Terminal
+        - 3. ***heroku apps*** in terminal to check if connection has been established
+        - 4. ***git init*** in Terminal
+        - 5. ***git add .*** in Terminal
+        - 6. ***git commit -m""*** in Terminal
+        - 7. Copy ***heroku git:remote -a yourappnamegoeshere*** from heroku to set it up in Heroku
+        - 8. Deploy on heroku ***git push heroku master***
+        - 9. run it ***heroku ps:scale web=1***
+        - 10. go to heroku Settings > Reveal config Vars add IP 0.0.0.0 and PORT 5000
+        - 11. deploy from heroku
 
 ## CREDITS
 
