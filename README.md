@@ -96,6 +96,9 @@ logged in. It also collapses on mobile screens.
 **Footer**
  I dont have a standard footer at the bottom, instead I have a Content Author div at the right side of the screen for mobile and tablets and when viewed from mobiles at the bottom of the page. Content Author section includes social links taking you to the developers GitHub and LinkedIn pages and copyright information with developers name.
 
+**Search**
+At this moment you can search only for a Country name, other names will promt for adding them if these names are not already in Database.
+
 **Features to be Implemented**
 
 - Edit and Delete only your content.
@@ -171,6 +174,8 @@ Manual testing completed by the developer on Desktop, Sony Xperia and Ipad Pro.
     - Try and submit the form with one of the input fields missing - you will get an error saying *'Please fill out this field'*.
     - Fill out the form and click on 'Add Symbol', you will be directed to 'Home' page and flash message will appear saying {symbol_name} has been successfuly added to {country_name}.
 
+7. **searchbar**
+    - When you use searchbar on index page or any other page where searchbar is accessible, you type in Country name, if typed any other name it will say *This name is not in our DataBase, would you like to **add** it?*
 
 ## DEPLOYMENT
 
